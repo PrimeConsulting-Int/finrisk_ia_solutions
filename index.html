@@ -1471,13 +1471,9 @@ async function confirmBooking(){
 Confirma cuando el evento haya sido creado exitosamente y devuelve el ID del evento y el enlace de Google Meet si está disponible.`;
 
   try {
-    const r = await fetch('https://api.anthropic.com/v1/messages',{
+    const r = await fetch('/.netlify/functions/anthropic-proxy',{
       method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'anthropic-version':'2023-06-01',
-        'anthropic-dangerous-direct-browser-access':'true'
-      },
+      headers:{'Content-Type':'application/json'},
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
         max_tokens: 1024,
@@ -1619,13 +1615,9 @@ function appendMsg(text, role){
 
 async function callAPI(messages, retries=3, delay=2000){
   for(let i=0; i<retries; i++){
-    const r = await fetch('https://api.anthropic.com/v1/messages',{
+    const r = await fetch('/.netlify/functions/anthropic-proxy',{
       method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'anthropic-version':'2023-06-01',
-        'anthropic-dangerous-direct-browser-access':'true'
-      },
+      headers:{'Content-Type':'application/json'},
       body: JSON.stringify({
         model:      'claude-haiku-4-5-20251001',
         max_tokens: 800,
