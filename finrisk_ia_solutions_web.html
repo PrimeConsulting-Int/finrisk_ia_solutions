@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FinRisk IA Solutions — Prime Consulting International LLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#0B1F3A;
+  --navy2:#132847;
+  --navy3:#1C3557;
+  --steel:#2E5580;
+  --ice:#E8F1FA;
+  --ice2:#F4F8FD;
+  --gold:#B8965A;
+  --gold2:#D4AF72;
+  --white:#FFFFFF;
+  --text:#0B1F3A;
+  --muted:#5A718A;
+  --border:#D0DDE9;
+  --accent:#1A7ED4;
+  --accent2:#0E62AA;
+  --red-risk:#C0392B;
+  --ff-display:'Playfair Display',Georgia,serif;
+  --ff-body:'DM Sans',sans-serif;
+  --ff-mono:'DM Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-body);background:var(--white);color:var(--text);line-height:1.6;font-size:16px}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--navy);color:rgba(255,255,255,.55);font-size:12px;padding:7px 0;letter-spacing:.04em}
+.topbar-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center}
+.topbar a{color:rgba(255,255,255,.55);text-decoration:none}
+.topbar a:hover{color:var(--gold2)}
+.topbar-right{display:flex;gap:1.5rem}
+
+/* ── NAV ── */
+nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(11,31,58,.07);overflow:hidden}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:12px;line-height:1}
+
+.nav-logo-name-block{display:flex;flex-direction:column;gap:3px}
+.nav-logo-main{font-family:var(--ff-display);font-size:15px;font-weight:600;color:var(--navy);letter-spacing:.04em;white-space:nowrap;text-transform:uppercase}
+.nav-logo-sub{font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap;font-weight:400}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:13.5px;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:.01em;transition:color .2s}
+.nav-links a:hover{color:var(--navy)}
+.nav-cta{background:var(--navy);color:var(--white);padding:.55rem 1.4rem;border-radius:4px;font-size:13px;font-weight:500;cursor:pointer;border:none;letter-spacing:.02em;transition:background .2s}
+.nav-cta:hover{background:var(--steel)}
+.lang-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.4rem .85rem;border-radius:4px;font-size:12px;cursor:pointer;font-weight:500;letter-spacing:.04em;transition:all .2s;margin-right:.75rem}
+.lang-btn:hover{border-color:var(--navy);color:var(--navy)}
+
+/* ── HERO ── */
+.hero{background:var(--navy);color:var(--white);position:relative;overflow:hidden;min-height:92vh;display:flex;align-items:center;z-index:1}
+.hero-bg-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%, rgba(26,126,212,.12) 0%, transparent 60%),radial-gradient(circle at 80% 20%, rgba(184,150,90,.08) 0%, transparent 50%);pointer-events:none}
+.hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;padding:5rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
+.hero-eyebrow-wrap{display:inline-block;background:rgba(184,150,90,.15);border:1px solid rgba(184,150,90,.3);color:var(--gold2);font-size:11px;font-weight:500;padding:5px 14px;border-radius:3px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.5rem;white-space:nowrap}
+.hero h1{font-family:var(--ff-display);font-size:clamp(2.4rem,4vw,3.2rem);font-weight:500;line-height:1.18;letter-spacing:-.5px;margin-bottom:1.25rem}
+.hero h1 em{font-style:normal;color:var(--gold2)}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:2rem;max-width:480px;font-weight:300}
+.hero-tagline{font-family:var(--ff-mono);font-size:12px;color:rgba(255,255,255,.35);letter-spacing:.08em;border-top:1px solid rgba(255,255,255,.08);padding-top:1.25rem;margin-bottom:2rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--navy);padding:.75rem 1.75rem;border-radius:4px;font-weight:500;font-size:14px;cursor:pointer;border:none;letter-spacing:.02em;transition:background .2s}
+button span.es-content,button span.en-content{display:inline !important;width:auto !important;height:auto !important;border-radius:0 !important;background:transparent !important}
+.btn-primary:hover{background:var(--gold2)}
+.btn-outline{background:transparent;color:var(--white);padding:.75rem 1.75rem;border-radius:4px;font-weight:500;font-size:14px;cursor:pointer;border:1px solid rgba(255,255,255,.25);letter-spacing:.02em;transition:all .2s}
+.btn-outline:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.05)}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.stat-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:1.5rem;transition:border-color .2s}
+.stat-card:hover{border-color:rgba(184,150,90,.3)}
+.stat-num{font-family:var(--ff-display);font-size:2.2rem;font-weight:500;color:var(--gold2);line-height:1}
+.stat-label{font-size:12px;color:rgba(255,255,255,.5);margin-top:.4rem;letter-spacing:.04em}
+.stat-detail{font-size:11px;color:rgba(255,255,255,.3);margin-top:.3rem}
+
+/* ── SECTIONS ── */
+section{padding:5rem 0}
+.section-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
+.section-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:.6rem}
+.section-title{font-family:var(--ff-display);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:500;color:var(--navy);line-height:1.2;margin-bottom:.75rem}
+.section-sub{font-size:15px;color:var(--muted);max-width:580px;line-height:1.7}
+.section-header{margin-bottom:3rem}
+.divider{height:2px;width:48px;background:var(--gold);margin:.75rem 0 1rem}
+
+/* ── BRAND BLOCK ── */
+.brand-block{background:var(--ice2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.brand-inner{max-width:1200px;margin:0 auto;padding:3.5rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.brand-logo-area{display:flex;flex-direction:column;gap:1rem}
+.brand-logo-main{font-family:var(--ff-display);font-size:2rem;font-weight:600;color:var(--navy);letter-spacing:-.3px}
+.brand-logo-main span{color:var(--accent)}
+.brand-logo-sub{font-size:13px;color:var(--muted);font-style:italic;border-left:3px solid var(--gold);padding-left:.75rem;line-height:1.5}
+.brand-tagline-big{font-family:var(--ff-mono);font-size:12px;color:var(--muted);letter-spacing:.1em;margin-top:.5rem}
+.brand-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;padding:4px 10px;border-radius:3px;letter-spacing:.04em}
+.badge-blue{background:#dbeafe;color:#1e3a8a}
+.badge-green{background:#dcfce7;color:#14532d}
+.badge-amber{background:#fef3c7;color:#78350f}
+.badge-slate{background:#f1f5f9;color:#334155;border:1px solid #e2e8f0}
+.brand-right p{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:1rem}
+.brand-right strong{color:var(--navy)}
+
+/* ── SERVICIOS GRID ── */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.svc-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1.75rem;transition:all .25s;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.svc-card:hover{border-color:var(--navy3);box-shadow:0 4px 24px rgba(11,31,58,.08)}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-icon{width:40px;height:40px;background:var(--ice);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;font-size:20px;color:var(--navy)}
+.svc-line{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.svc-title{font-family:var(--ff-display);font-size:17px;font-weight:500;color:var(--navy);margin-bottom:.6rem}
+.svc-desc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:1rem}
+.svc-items{list-style:none;display:flex;flex-direction:column;gap:.35rem}
+.svc-items li{font-size:12px;color:var(--muted);display:flex;align-items:flex-start;gap:.5rem}
+.svc-items li::before{content:'→';color:var(--gold);flex-shrink:0;margin-top:1px}
+
+/* ── VALUE PROP ── */
+.value-bg{background:var(--navy)}
+.value-inner{max-width:1200px;margin:0 auto;padding:5rem 2rem}
+.value-title{font-family:var(--ff-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:500;color:var(--white);margin-bottom:.75rem}
+.value-sub{color:rgba(255,255,255,.55);font-size:15px;max-width:560px;margin-bottom:3rem}
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);border-radius:8px;overflow:hidden}
+@media(max-width:700px){.diff-grid{grid-template-columns:1fr}}
+.diff-header{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08)}
+@media(max-width:700px){.diff-header{grid-template-columns:1fr;grid-column:1}}
+.diff-col-head{background:rgba(255,255,255,.04);padding:.75rem 1.1rem;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.diff-col-head.ours{background:rgba(26,126,212,.15);color:var(--gold2)}
+.diff-row-wrap{display:contents}
+.diff-criterion{background:rgba(255,255,255,.03);padding:.85rem 1.1rem;font-size:12px;font-weight:500;color:rgba(255,255,255,.55);border-right:1px solid rgba(255,255,255,.08)}
+.diff-generic{background:rgba(255,255,255,.02);padding:.85rem 1.1rem;font-size:12px;color:rgba(255,255,255,.35);line-height:1.5}
+.diff-ours{background:rgba(26,126,212,.06);padding:.85rem 1.1rem;font-size:12px;color:rgba(255,255,255,.75);font-weight:500;line-height:1.5}
+.value-pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:2px 8px;border-radius:3px;margin-top:.4rem}
+.vp-hi{background:rgba(52,211,153,.12);color:#6ee7b7}
+.vp-lo{background:rgba(239,68,68,.1);color:#fca5a5}
+.vp-summary{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:2rem;margin-top:2.5rem}
+.vp-summary-title{font-family:var(--ff-display);font-size:18px;color:var(--white);margin-bottom:.6rem}
+.vp-summary-text{font-size:14px;color:rgba(255,255,255,.6);line-height:1.75}
+
+/* ── CASOS DE USO ── */
+.cases-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.case-card{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:box-shadow .25s}
+.case-card:hover{box-shadow:0 6px 32px rgba(11,31,58,.1)}
+.case-top{background:var(--navy);padding:1.25rem 1.5rem}
+.case-tag{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gold2);margin-bottom:.4rem}
+.case-title{font-family:var(--ff-display);font-size:16px;color:var(--white);font-weight:500}
+.case-body{padding:1.25rem 1.5rem}
+.case-metric{font-family:var(--ff-display);font-size:2rem;font-weight:600;color:var(--accent);line-height:1}
+.case-metric-label{font-size:11px;color:var(--muted);margin-top:.25rem;margin-bottom:.75rem}
+.case-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.case-badges{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.75rem}
+
+/* ── MÉTODO ── */
+.method-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;counter-reset:step}
+@media(max-width:700px){.method-steps{grid-template-columns:1fr 1fr}}
+.method-step{position:relative;padding:1.5rem}
+.step-num{font-family:var(--ff-display);font-size:3rem;font-weight:600;color:var(--border);line-height:1;margin-bottom:.75rem}
+.step-title{font-size:15px;font-weight:500;color:var(--navy);margin-bottom:.4rem}
+.step-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.step-connector{position:absolute;top:2.25rem;right:-1rem;font-size:20px;color:var(--border);z-index:1}
+@media(max-width:700px){.step-connector{display:none}}
+
+/* ── FRAMEWORKS ── */
+.fw-grid{display:flex;flex-wrap:wrap;gap:.75rem}
+.fw-chip{display:inline-flex;align-items:center;gap:.4rem;background:var(--ice);border:1px solid var(--border);border-radius:4px;padding:.4rem .85rem;font-size:12px;color:var(--navy);font-weight:500}
+.fw-chip svg{width:14px;height:14px;opacity:.5}
+
+/* ── PERFIL ── */
+.profile-grid{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start}
+@media(max-width:700px){.profile-grid{grid-template-columns:1fr}}
+.profile-card{background:var(--navy);border-radius:12px;padding:2rem;color:var(--white)}
+.profile-initials{width:72px;height:72px;border-radius:50%;background:rgba(184,150,90,.2);border:2px solid rgba(184,150,90,.3);display:flex;align-items:center;justify-content:center;font-family:var(--ff-display);font-size:22px;color:var(--gold2);margin-bottom:1rem}
+.profile-name{font-family:var(--ff-display);font-size:20px;font-weight:500;margin-bottom:.25rem}
+.profile-role{font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.25rem}
+.profile-links{display:flex;flex-direction:column;gap:.5rem}
+.profile-link{display:flex;align-items:center;gap:.5rem;font-size:12px;color:rgba(255,255,255,.55);text-decoration:none}
+.profile-link:hover{color:var(--gold2)}
+.profile-sep{border:none;border-top:1px solid rgba(255,255,255,.08);margin:1rem 0}
+.profile-content h3{font-family:var(--ff-display);font-size:1.5rem;color:var(--navy);margin-bottom:.5rem}
+.profile-content p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:1rem}
+.expertise-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1.25rem}
+.expertise-item{display:flex;align-items:flex-start;gap:.5rem;font-size:13px;color:var(--muted)}
+.expertise-item::before{content:'✓';color:var(--gold);flex-shrink:0;font-weight:600}
+
+/* ── CONTACT ── */
+.contact-bg{background:var(--ice2);border-top:1px solid var(--border)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+@media(max-width:700px){.contact-grid{grid-template-columns:1fr}}
+.contact-info h3{font-family:var(--ff-display);font-size:1.6rem;color:var(--navy);margin-bottom:.5rem}
+.contact-info p{font-size:14px;color:var(--muted);margin-bottom:1.5rem;line-height:1.7}
+.contact-detail{display:flex;align-items:center;gap:.75rem;font-size:14px;color:var(--muted);margin-bottom:.75rem}
+.contact-detail strong{color:var(--navy)}
+.contact-form{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:2rem}
+.form-group{margin-bottom:1.25rem}
+.form-group label{display:block;font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--navy);margin-bottom:.4rem;text-transform:uppercase}
+.form-group input,.form-group select,.form-group textarea{width:100%;border:1px solid var(--border);border-radius:4px;padding:.65rem .85rem;font-size:14px;font-family:var(--ff-body);color:var(--text);background:var(--white);outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent)}
+.form-group textarea{height:110px;resize:vertical}
+.form-submit{width:100%;background:var(--navy);color:var(--white);padding:.8rem;border:none;border-radius:4px;font-size:14px;font-weight:500;cursor:pointer;letter-spacing:.03em;transition:background .2s}
+.form-submit:hover{background:var(--steel)}
+.form-note{font-size:11px;color:var(--muted);margin-top:.75rem;text-align:center}
+
+/* ── CHATBOT ── */
+.chat-fab{position:fixed;bottom:2rem;right:2rem;z-index:200;display:flex;flex-direction:column;align-items:flex-end;gap:.75rem}
+.chat-btn{width:56px;height:56px;border-radius:50%;background:var(--navy);color:var(--white);border:none;cursor:pointer;font-size:22px;box-shadow:0 4px 20px rgba(11,31,58,.3);display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.chat-btn:hover{transform:scale(1.05)}
+.chat-window{background:var(--white);border:1px solid var(--border);border-radius:12px;width:360px;max-width:calc(100vw - 2rem);box-shadow:0 8px 40px rgba(11,31,58,.15);overflow:hidden;display:none;flex-direction:column}
+.chat-window.open{display:flex}
+.chat-head{background:var(--navy);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between}
+.chat-head-title{font-size:14px;font-weight:500;color:var(--white)}
+.chat-head-sub{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
+.chat-close{background:transparent;border:none;color:rgba(255,255,255,.5);font-size:18px;cursor:pointer;padding:2px 6px}
+.chat-close:hover{color:var(--white)}
+.chat-messages{padding:1rem;height:280px;overflow-y:auto;display:flex;flex-direction:column;gap:.75rem}
+.msg{max-width:82%;padding:.65rem .9rem;border-radius:10px;font-size:13px;line-height:1.55}
+.msg.bot{background:var(--ice);color:var(--text);align-self:flex-start}
+.msg.user{background:var(--navy);color:var(--white);align-self:flex-end}
+.chat-input-row{padding:.75rem;border-top:1px solid var(--border);display:flex;gap:.5rem}
+.chat-input{flex:1;border:1px solid var(--border);border-radius:4px;padding:.5rem .75rem;font-size:13px;font-family:var(--ff-body);outline:none}
+.chat-input:focus{border-color:var(--accent)}
+.chat-send{background:var(--navy);color:var(--white);border:none;border-radius:4px;padding:.5rem .85rem;font-size:13px;cursor:pointer}
+.chat-send:hover{background:var(--steel)}
+.chat-thinking{color:var(--muted);font-size:12px;padding:0 1rem .5rem;font-style:italic}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);color:rgba(255,255,255,.45);padding:3rem 0 1.5rem}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+@media(max-width:700px){.footer-top{grid-template-columns:1fr}}
+.footer-brand-name{font-family:var(--ff-display);font-size:16px;color:var(--white);margin-bottom:.3rem}
+.footer-brand-line{font-size:11px;color:var(--gold2);letter-spacing:.06em;margin-bottom:.75rem}
+.footer-brand-desc{font-size:13px;line-height:1.65}
+.footer-col h4{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:.75rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.footer-col ul li a{font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s}
+.footer-col ul li a:hover{color:rgba(255,255,255,.8)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.footer-bottom-right{display:flex;gap:1rem}
+
+/* ── BOOKING MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(11,31,58,.6);z-index:300;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;padding:1rem}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-box{background:var(--white);border-radius:12px;width:100%;max-width:540px;overflow:hidden;transform:translateY(20px);transition:transform .25s;max-height:90vh;overflow-y:auto}
+.modal-overlay.open .modal-box{transform:none}
+.modal-head{background:var(--navy);padding:1.4rem 1.75rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.modal-head-title{font-family:var(--ff-display);font-size:19px;color:var(--white);font-weight:500}
+.modal-head-sub{font-size:12px;color:rgba(255,255,255,.5);margin-top:3px}
+.modal-close{background:transparent;border:none;color:rgba(255,255,255,.5);font-size:20px;cursor:pointer;padding:2px 4px;line-height:1;flex-shrink:0}
+.modal-close:hover{color:var(--white)}
+.modal-body{padding:1.75rem}
+.booking-steps{display:flex;gap:0;margin-bottom:1.5rem;border-bottom:1px solid var(--border);padding-bottom:1rem}
+.bstep{flex:1;text-align:center;font-size:11px;color:var(--muted);position:relative;padding-bottom:.5rem}
+.bstep::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:transparent;border-radius:2px}
+.bstep.active{color:var(--accent);font-weight:500}
+.bstep.active::after{background:var(--accent)}
+.bstep.done{color:var(--gold)}
+.bstep.done::after{background:var(--gold)}
+.bstep-num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--ice);color:var(--muted);font-size:11px;font-weight:500;margin-bottom:.25rem;transition:all .2s}
+.bstep.active .bstep-num{background:var(--accent);color:var(--white)}
+.bstep.done .bstep-num{background:var(--gold);color:var(--white)}
+.booking-step-panel{display:none}
+.booking-step-panel.active{display:block}
+.bform-group{margin-bottom:1.1rem}
+.bform-group label{display:block;font-size:11px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);margin-bottom:.35rem}
+.bform-group input,.bform-group select,.bform-group textarea{width:100%;border:1px solid var(--border);border-radius:4px;padding:.6rem .8rem;font-size:14px;font-family:var(--ff-body);color:var(--text);background:var(--white);outline:none;transition:border-color .2s}
+.bform-group input:focus,.bform-group select:focus,.bform-group textarea:focus{border-color:var(--accent)}
+.bform-group textarea{height:90px;resize:vertical}
+.bform-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.bform-hint{font-size:11px;color:var(--muted);margin-top:.3rem}
+.time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.25rem}
+.time-slot{border:1px solid var(--border);border-radius:4px;padding:.5rem;text-align:center;font-size:13px;cursor:pointer;color:var(--muted);transition:all .2s}
+.time-slot:hover{border-color:var(--accent);color:var(--accent)}
+.time-slot.selected{background:var(--accent);border-color:var(--accent);color:var(--white);font-weight:500}
+.time-slot.disabled{opacity:.35;cursor:not-allowed;pointer-events:none}
+.booking-summary{background:var(--ice2);border:1px solid var(--border);border-radius:6px;padding:1.1rem;margin-bottom:1.25rem}
+.bsummary-row{display:flex;justify-content:space-between;font-size:13px;padding:.3rem 0;border-bottom:1px solid var(--border)}
+.bsummary-row:last-child{border-bottom:none;font-weight:500;color:var(--navy)}
+.bsummary-label{color:var(--muted)}
+.bsummary-val{color:var(--navy);text-align:right;max-width:60%}
+.booking-actions{display:flex;gap:.75rem;justify-content:flex-end;margin-top:1.25rem}
+.btn-back{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.6rem 1.2rem;border-radius:4px;font-size:13px;cursor:pointer}
+.btn-back:hover{border-color:var(--navy);color:var(--navy)}
+.btn-next{background:var(--navy);color:var(--white);border:none;padding:.6rem 1.4rem;border-radius:4px;font-size:13px;font-weight:500;cursor:pointer}
+.btn-next:hover{background:var(--steel)}
+.btn-next:disabled{opacity:.5;cursor:not-allowed}
+.booking-success{text-align:center;padding:1rem 0 .5rem}
+.booking-success-icon{font-size:48px;margin-bottom:1rem}
+.booking-success-title{font-family:var(--ff-display);font-size:20px;color:var(--navy);margin-bottom:.5rem}
+.booking-success-sub{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:1rem}
+.booking-success-event{background:var(--ice2);border:1px solid var(--border);border-radius:6px;padding:1rem;text-align:left;font-size:13px}
+.booking-success-event a{color:var(--accent);text-decoration:none;font-weight:500}
+.booking-success-event a:hover{text-decoration:underline}
+.booking-loading{text-align:center;padding:2rem}
+.booking-spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 1rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── LANG TOGGLE ── */
+.es-content{display:block}
+.en-content{display:none}
+.lang-en .es-content{display:none}
+.lang-en .en-content{display:block}
+label.es-content,label.en-content{display:block}
+.lang-en label.es-content{display:none}
+.lang-en label.en-content{display:block}
+
+/* ── UTILITIES ── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:3rem}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .brand-inner,.profile-grid,.diff-header,.diff-grid{grid-template-columns:1fr}
+  .diff-header{grid-column:1}
+  .method-steps{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+.fade-in{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
+.fade-in.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span id="topbar-loc">Miami, FL · América Latina · informes@primeconsulting-int.com</span>
+    <div class="topbar-right">
+      <a href="tel:+17866050670">(1) 786-605-0670</a>
+      <a href="mailto:informes@primeconsulting-int.com" id="topbar-contact">Contacto</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-name-block">
+        <span class="nav-logo-main">PRIME CONSULTING INTERNATIONAL LLC</span>
+        <span class="nav-logo-sub">Risk. Governance. Continuity. Compliance.</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#servicios" onclick="goTo('servicios')">Servicios</a></li>
+      <li><a href="#valor" onclick="goTo('valor')">Propuesta de Valor</a></li>
+      <li><a href="#casos" onclick="goTo('casos')">Casos de Uso</a></li>
+      <li><a href="#metodologia" onclick="goTo('metodologia')">Metodología</a></li>
+      <li><a href="#perfil" onclick="goTo('perfil')">Perfil</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:.5rem">
+      <button class="lang-btn" onclick="toggleLang()">EN / ES</button>
+      <button class="nav-cta" id="nav-cta-btn" onclick="openBooking()">Solicitar Consulta</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow-wrap">FinRisk IA Solutions &nbsp;·&nbsp; Prime Consulting International</div>
+      <h1 class="es-content">Transformamos la gestión de riesgos en <em>ventaja competitiva</em> con inteligencia artificial.</h1>
+      <h1 class="en-content">We transform risk management into <em>competitive advantage</em> with artificial intelligence.</h1>
+      <p class="hero-sub es-content">Soluciones de IA diseñadas para equipos de riesgo en entidades financieras latinoamericanas. Marcos regulatorios nativos. Entregables listos para comité desde el primer sprint.</p>
+      <p class="hero-sub en-content">AI solutions designed for risk teams in Latin American financial institutions. Native regulatory frameworks. Committee-ready deliverables from the first sprint.</p>
+      <div class="hero-tagline">
+        <span class="es-content">— Inteligencia artificial aplicada al riesgo que importa.</span>
+        <span class="en-content">— Artificial intelligence applied to the risk that matters.</span>
+      </div>
+      <div class="hero-actions">
+        <button class="btn-primary" id="hero-btn1" onclick="openBooking()">Agendar Consulta Ejecutiva</button>
+        <button class="btn-outline" id="hero-btn2" onclick="goTo('servicios')">Ver Servicios</button>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">4</div>
+        <div class="stat-label es-content">Líneas de Servicio Especializadas</div>
+        <div class="stat-label en-content">Specialized Service Lines</div>
+        <div class="stat-detail es-content">Diseño e Impl. IA · Dashboards · Agentes GPT · Evaluación de Riesgos · Auditorías</div>
+        <div class="stat-detail en-content">AI Design & Impl. · Dashboards · GPT Agents · Risk Assessment · Audits</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">15+</div>
+        <div class="stat-label es-content">Herramientas Desplegadas</div>
+        <div class="stat-label en-content">Deployed Tools</div>
+        <div class="stat-detail">SGRIA · ORION-IA · SGCN · ICAAP · RCSA · SMIT</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label es-content">Foco Sector Financiero</div>
+        <div class="stat-label en-content">Financial Sector Focus</div>
+        <div class="stat-detail">Basel II/III · COSO ERM · ISO 31000 · Latam regs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4–8</div>
+        <div class="stat-label es-content">Semanas por Entregable</div>
+        <div class="stat-label en-content">Weeks per Deliverable</div>
+        <div class="stat-detail es-content">Valor demostrable desde el primer módulo</div>
+        <div class="stat-detail en-content">Demonstrable value from the first module</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND BLOCK -->
+<div class="brand-block">
+  <div class="brand-inner">
+    <div class="brand-logo-area">
+      <div class="brand-logo-main"><span>FinRisk IA</span> Solutions</div>
+      <div class="brand-logo-sub es-content">"Inteligencia artificial aplicada<br>al riesgo que importa."</div>
+      <div class="brand-logo-sub en-content">"Artificial intelligence applied<br>to the risk that matters."</div>
+      <div class="brand-tagline-big">PRIME CONSULTING INTERNATIONAL LLC · Risk. Governance. Continuity. Compliance.</div>
+      <div class="brand-badges">
+        <span class="badge badge-blue">Basel II / III</span>
+        <span class="badge badge-blue">COSO ERM 2017</span>
+        <span class="badge badge-green">ISO 31000</span>
+        <span class="badge badge-amber">Riesgo Operacional</span>
+        <span class="badge badge-slate">IA Aplicada</span>
+        <span class="badge badge-slate">Latam</span>
+      </div>
+    </div>
+    <div class="brand-right">
+      <p class="es-content"><strong>FinRisk IA Solutions</strong> es la línea especializada de Prime Consulting International LLC para el diseño e implementación de soluciones de inteligencia artificial en la gestión del riesgo operacional de entidades financieras latinoamericanas.</p>
+      <p class="en-content"><strong>FinRisk IA Solutions</strong> is the specialized line of Prime Consulting International LLC for designing and implementing artificial intelligence solutions in operational risk management for Latin American financial institutions.</p>
+      <p class="es-content">A diferencia de las consultoras generalistas de IA, combinamos profundidad en riesgo bancario con capacidad técnica de implementación — entregando marcos de gobernanza, agentes especializados y herramientas analíticas que el equipo del cliente puede operar con autonomía desde el primer día.</p>
+      <p class="en-content">Unlike generalist AI consultancies, we combine depth in banking risk with technical implementation capability — delivering governance frameworks, specialized agents, and analytical tools that the client's team can operate autonomously from day one.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label es-content">Líneas de Servicio · FinRisk IA Solutions</div>
+      <div class="section-label en-content">Service Lines · FinRisk IA Solutions</div>
+      <h2 class="section-title es-content">Soluciones IA especializadas<br>para cada dimensión del riesgo</h2>
+      <h2 class="section-title en-content">Specialized AI solutions<br>for every risk dimension</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="services-grid">
+
+      <div class="svc-card fade-in">
+        <div class="svc-icon">⚙</div>
+        <div class="svc-line es-content">Línea 1</div>
+        <div class="svc-line en-content">Line 1</div>
+        <div class="svc-title es-content">Diseño de Agentes IA de Riesgo</div>
+        <div class="svc-title en-content">Risk AI Agent Design</div>
+        <div class="svc-desc es-content">GPT Agents especializados para unidades de riesgo operacional, BCM y cumplimiento. Paquetes completos: prompt + manuales + pruebas + cierre.</div>
+        <div class="svc-desc en-content">Specialized GPT Agents for operational risk, BCM, and compliance units. Full packages: prompt + manuals + testing + closure reports.</div>
+        <ul class="svc-items">
+          <li class="es-content">Levantamiento metodológico y diseño de prompts</li>
+          <li class="en-content">Methodological survey and prompt design</li>
+          <li class="es-content">Integración COSO / Basel / ISO 31000</li>
+          <li class="en-content">COSO / Basel / ISO 31000 integration</li>
+          <li class="es-content">Validación con checklist de 54 puntos</li>
+          <li class="en-content">54-point checklist validation</li>
+        </ul>
+      </div>
+
+      <div class="svc-card fade-in">
+        <div class="svc-icon">📊</div>
+        <div class="svc-line es-content">Línea 2</div>
+        <div class="svc-line en-content">Line 2</div>
+        <div class="svc-title es-content">Dashboards e Inteligencia de Riesgo</div>
+        <div class="svc-title en-content">Risk Intelligence Dashboards</div>
+        <div class="svc-desc es-content">Herramientas analíticas standalone para monitoreo, reporte y gestión del riesgo. Sin dependencias externas, operables en intranet bancaria.</div>
+        <div class="svc-desc en-content">Standalone analytical tools for risk monitoring and reporting. No external dependencies, operable on banking intranet.</div>
+        <ul class="svc-items">
+          <li>RCSA · ORMON · ICAAP · SGRIA</li>
+          <li class="es-content">KRI/KPI/KCI con alertas automáticas</li>
+          <li class="en-content">KRI/KPI/KCI with automated alerts</li>
+          <li class="es-content">LDA · Monte Carlo · VaR · sVaR</li>
+          <li class="en-content">LDA · Monte Carlo · VaR · sVaR</li>
+        </ul>
+      </div>
+
+      <div class="svc-card fade-in">
+        <div class="svc-icon">🔍</div>
+        <div class="svc-line es-content">Línea 3</div>
+        <div class="svc-line en-content">Line 3</div>
+        <div class="svc-title es-content">Evaluación de Riesgos en Implementaciones de IA</div>
+        <div class="svc-title en-content">AI Implementation Risk Assessment</div>
+        <div class="svc-desc es-content">Identificamos, analizamos y tratamos los riesgos asociados al diseño, desarrollo e implementación de soluciones IA en entidades financieras bajo ISO 23894:2023 y NIST AI RMF, alineados con los marcos regulatorios de cada jurisdicción.</div>
+        <div class="svc-desc en-content">We identify, analyze and treat risks associated with AI solution design, development and deployment in financial institutions under ISO 23894:2023 and NIST AI RMF, aligned with each jurisdiction's regulatory framework.</div>
+        <ul class="svc-items">
+          <li class="es-content">Inventario y clasificación de sistemas IA por nivel de riesgo</li>
+          <li class="en-content">AI system inventory and risk-level classification</li>
+          <li class="es-content">Evaluación de impacto RAIA — ISO 23894 / NIST AI RMF</li>
+          <li class="en-content">RAIA impact assessment — ISO 23894 / NIST AI RMF</li>
+          <li class="es-content">Matrices de riesgo IA: causas, controles y riesgo residual</li>
+          <li class="en-content">AI risk matrices: causes, controls and residual risk</li>
+          <li class="es-content">Plan de tratamiento y mitigación de riesgos de modelos</li>
+          <li class="en-content">Model risk treatment and mitigation plan</li>
+          <li class="es-content">Informe ejecutivo para Directorio y regulador</li>
+          <li class="en-content">Executive report for Board and regulator</li>
+        </ul>
+      </div>
+
+      <div class="svc-card fade-in">
+        <div class="svc-icon">🛡</div>
+        <div class="svc-line es-content">Línea 4</div>
+        <div class="svc-line en-content">Line 4</div>
+        <div class="svc-title es-content">Gobernanza IA & Cumplimiento</div>
+        <div class="svc-title en-content">AI Governance & Compliance</div>
+        <div class="svc-desc es-content">Políticas, marcos de control y documentación de gobernanza para el uso de IA en entidades financieras reguladas de Latinoamérica.</div>
+        <div class="svc-desc en-content">Policies, control frameworks, and governance documentation for AI use in regulated Latin American financial institutions.</div>
+        <ul class="svc-items">
+          <li>POL · MAN · MET · PRO-RO-IA</li>
+          <li class="es-content">Matrices SGRIA (F-IA-001 a F-IA-019)</li>
+          <li class="en-content">SGRIA matrices (F-IA-001 to F-IA-019)</li>
+          <li class="es-content">Alineación SIPEN · SBS · ASOBANCARIA</li>
+          <li class="en-content">SIPEN · SBS · ASOBANCARIA alignment</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROPUESTA DE VALOR -->
+<section id="valor" class="value-bg">
+  <div class="value-inner">
+    <div class="section-label" style="color:rgba(255,255,255,.35)">
+      <span class="es-content">Diferenciación Estratégica</span>
+      <span class="en-content">Strategic Differentiation</span>
+    </div>
+    <h2 class="value-title es-content">¿Por qué FinRisk IA Solutions<br>frente a consultoras generalistas de IA?</h2>
+    <h2 class="value-title en-content">Why FinRisk IA Solutions<br>vs. generalist AI consultancies?</h2>
+    <div class="divider" style="background:var(--gold)"></div>
+    <p class="value-sub es-content">Las firmas de IA generales no conocen el lenguaje del riesgo bancario. Nosotros lo hablamos con fluidez — y lo implementamos.</p>
+    <p class="value-sub en-content">General AI firms don't speak the language of banking risk. We speak it fluently — and we implement it.</p>
+
+    <div style="overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;min-width:500px">
+      <thead>
+        <tr>
+          <th style="background:rgba(255,255,255,.04);padding:.75rem 1rem;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);text-align:left;border-bottom:1px solid rgba(255,255,255,.08)">
+            <span class="es-content">Criterio</span><span class="en-content">Criterion</span>
+          </th>
+          <th style="background:rgba(255,255,255,.04);padding:.75rem 1rem;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);text-align:left;border-bottom:1px solid rgba(255,255,255,.08)">
+            <span class="es-content">Consultora IA Generalista</span><span class="en-content">Generalist AI Firm</span>
+          </th>
+          <th style="background:rgba(26,126,212,.15);padding:.75rem 1rem;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gold2);text-align:left;border-bottom:1px solid rgba(255,255,255,.08)">
+            FinRisk IA Solutions
+          </th>
+        </tr>
+      </thead>
+      <tbody id="diff-tbody">
+      </tbody>
+    </table>
+    </div>
+
+    <div class="vp-summary">
+      <div class="vp-summary-title es-content">Posicionamiento único</div>
+      <div class="vp-summary-title en-content">Unique positioning</div>
+      <p class="vp-summary-text es-content">FinRisk IA Solutions es la única firma especializada en diseño e implementación de soluciones de IA para gestión del riesgo operacional en entidades financieras latinoamericanas — entregando no solo tecnología, sino marcos de gobernanza, documentación regulatoria y capacidades instaladas que permiten al cliente operar con autonomía desde el primer día.</p>
+      <p class="vp-summary-text en-content">FinRisk IA Solutions is the only firm specialized in designing and implementing AI solutions for operational risk management in Latin American financial institutions — delivering not just technology, but governance frameworks, regulatory documentation, and installed capabilities that allow the client to operate autonomously from day one.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CASOS DE USO -->
+<section id="casos">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label es-content">Evidencia de Impacto</div>
+      <div class="section-label en-content">Impact Evidence</div>
+      <h2 class="section-title es-content">Resultados medibles en entidades financieras</h2>
+      <h2 class="section-title en-content">Measurable results in financial institutions</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card fade-in">
+        <div class="case-top">
+          <div class="case-tag">ICAAP · Capital Adequacy</div>
+          <div class="case-title es-content">Dashboard ICAAP con Stress Testing IA</div>
+          <div class="case-title en-content">ICAAP Dashboard with AI Stress Testing</div>
+        </div>
+        <div class="case-body">
+          <div class="case-metric">−65%</div>
+          <div class="case-metric-label es-content">reducción tiempo de reporte a regulador</div>
+          <div class="case-metric-label en-content">reduction in regulatory reporting time</div>
+          <div class="case-desc es-content">Sistema ICAAP standalone con RAF, Plan de Capital, Stress Testing (3 escenarios) y simulación Monte Carlo. Cálculo automático CET1/TSCR+CBR+P2G.</div>
+          <div class="case-desc en-content">Standalone ICAAP system with RAF, Capital Plan, Stress Testing (3 scenarios), and Monte Carlo simulation. Automatic CET1/TSCR+CBR+P2G calculation.</div>
+          <div class="case-badges">
+            <span class="badge badge-blue">Basel III</span>
+            <span class="badge badge-slate">Monte Carlo</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-card fade-in">
+        <div class="case-top">
+          <div class="case-tag">RCSA · Operational Risk</div>
+          <div class="case-title es-content">Plataforma RCSA con Agente GPT</div>
+          <div class="case-title en-content">RCSA Platform with GPT Agent</div>
+        </div>
+        <div class="case-body">
+          <div class="case-metric">47</div>
+          <div class="case-metric-label es-content">brechas de control identificadas en primer ciclo</div>
+          <div class="case-metric-label en-content">control gaps identified in first cycle</div>
+          <div class="case-desc es-content">Herramienta RCSA con matriz de riesgo interactiva, mapeo de causas/eventos/consecuencias, cálculo de riesgo residual y agente GPT para análisis semántico.</div>
+          <div class="case-desc en-content">RCSA tool with interactive risk matrix, cause/event/consequence mapping, residual risk calculation, and GPT agent for semantic analysis.</div>
+          <div class="case-badges">
+            <span class="badge badge-green">COSO ERM</span>
+            <span class="badge badge-slate">GPT Agent</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-card fade-in">
+        <div class="case-top">
+          <div class="case-tag">Riesgo Operacional · Basel II/III</div>
+          <div class="case-title es-content">Plataforma RCSA con Agente IA</div>
+          <div class="case-title en-content">RCSA Platform with AI Agent</div>
+        </div>
+        <div class="case-body">
+          <div class="case-metric">360°</div>
+          <div class="case-metric-label es-content">cobertura del ciclo de riesgo operacional</div>
+          <div class="case-metric-label en-content">full operational risk cycle coverage</div>
+          <div class="case-desc es-content">Dashboard RCSA standalone con matriz de riesgo interactiva, KRIs, LDA/Monte Carlo, agente GPT para análisis semántico de eventos y exportación Word/Excel para comités.</div>
+          <div class="case-desc en-content">Standalone RCSA dashboard with interactive risk matrix, KRIs, LDA/Monte Carlo, GPT agent for event semantic analysis, and Word/Excel export for committees.</div>
+          <div class="case-badges">
+            <span class="badge badge-blue">Basel II/III</span>
+            <span class="badge badge-green">COSO ERM</span>
+            <span class="badge badge-slate">GPT Agent</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card fade-in">
+        <div class="case-top">
+          <div class="case-tag">Continuidad del Negocio · ISO 22301</div>
+          <div class="case-title es-content">Sistema SGCN — Continuidad Inteligente</div>
+          <div class="case-title en-content">SGCN — Intelligent Business Continuity</div>
+        </div>
+        <div class="case-body">
+          <div class="case-metric">ISO 22301</div>
+          <div class="case-metric-label es-content">BIA · RTO/RPO · Planes de recuperación</div>
+          <div class="case-metric-label en-content">BIA · RTO/RPO · Recovery plans</div>
+          <div class="case-desc es-content">Plataforma BCM standalone que integra BIA, análisis de impacto, estrategias de recuperación, planes de prueba y agente GPT para simulación de escenarios de crisis.</div>
+          <div class="case-desc en-content">Standalone BCM platform integrating BIA, impact analysis, recovery strategies, test plans, and GPT agent for crisis scenario simulation.</div>
+          <div class="case-badges">
+            <span class="badge badge-blue">ISO 22301:2019</span>
+            <span class="badge badge-slate">BCM Agent</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card fade-in">
+        <div class="case-top">
+          <div class="case-tag">Seguridad de Información · ISO 27001</div>
+          <div class="case-title es-content">Agente GSI — Gestión de Seguridad IA</div>
+          <div class="case-title en-content">GSI Agent — AI Security Management</div>
+        </div>
+        <div class="case-body">
+          <div class="case-metric">114</div>
+          <div class="case-metric-label es-content">controles ISO 27001 evaluados con IA</div>
+          <div class="case-metric-label en-content">ISO 27001 controls assessed with AI</div>
+          <div class="case-desc es-content">Agente GPT especializado en seguridad de la información: inventario de activos, evaluación de amenazas y vulnerabilidades, tratamiento de riesgos y seguimiento de controles bajo ISO 27001:2022.</div>
+          <div class="case-desc en-content">Specialized GPT agent for information security: asset inventory, threat and vulnerability assessment, risk treatment, and control monitoring under ISO 27001:2022.</div>
+          <div class="case-badges">
+            <span class="badge badge-blue">ISO 27001:2022</span>
+            <span class="badge badge-amber">NIST CSF 2.0</span>
+            <span class="badge badge-slate">GPT Agent</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card fade-in">
+        <div class="case-top">
+          <div class="case-tag">Cumplimiento Normativo · Regulatory</div>
+          <div class="case-title es-content">Dashboard de Cumplimiento Regulatorio</div>
+          <div class="case-title en-content">Regulatory Compliance Dashboard</div>
+        </div>
+        <div class="case-body">
+          <div class="case-metric">Multi-reg</div>
+          <div class="case-metric-label es-content">SIPEN · SBS · CMF · SFC · BCP</div>
+          <div class="case-metric-label en-content">SIPEN · SBS · CMF · SFC · BCP</div>
+          <div class="case-desc es-content">Herramienta de seguimiento regulatorio con gap analysis automatizado, matriz de cumplimiento por norma, planes de acción con responsables y alertas de vencimiento de compromisos.</div>
+          <div class="case-desc en-content">Regulatory tracking tool with automated gap analysis, compliance matrix by regulation, action plans with owners, and commitment deadline alerts.</div>
+          <div class="case-badges">
+            <span class="badge badge-green">SIPEN</span>
+            <span class="badge badge-blue">SBS Perú</span>
+            <span class="badge badge-slate">CMF · SFC</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card fade-in">
+        <div class="case-top">
+          <div class="case-tag">Gobierno Corporativo · Directorio</div>
+          <div class="case-title es-content">Dashboard de Evaluación de Directorio</div>
+          <div class="case-title en-content">Board Evaluation Dashboard</div>
+        </div>
+        <div class="case-body">
+          <div class="case-metric">Gov. Corp.</div>
+          <div class="case-metric-label es-content">evaluación de desempeño del Directorio</div>
+          <div class="case-metric-label en-content">Board performance evaluation</div>
+          <div class="case-desc es-content">Sistema de evaluación de desempeño del Directorio y Alta Gerencia alineado a COSO ERM 2017, principios de gobierno corporativo del Comité de Basilea y mejores prácticas regulatorias para entidades financieras latinoamericanas.</div>
+          <div class="case-desc en-content">Board and senior management performance evaluation system aligned with COSO ERM 2017, Basel Committee corporate governance principles, and regulatory best practices for Latin American financial institutions.</div>
+          <div class="case-badges">
+            <span class="badge badge-blue">Comité de Basilea</span>
+            <span class="badge badge-green">COSO ERM 2017</span>
+            <span class="badge badge-slate">Gobierno Corp.</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-card fade-in">
+        <div class="case-top">
+          <div class="case-tag">AML · Compliance</div>
+          <div class="case-title es-content">Agente AML con Análisis Semántico</div>
+          <div class="case-title en-content">AML Agent with Semantic Analysis</div>
+        </div>
+        <div class="case-body">
+          <div class="case-metric">−72%</div>
+          <div class="case-metric-label es-content">reducción de falsos positivos en alertas AML</div>
+          <div class="case-metric-label en-content">reduction in AML alert false positives</div>
+          <div class="case-desc es-content">Agente GPT para análisis de operaciones sospechosas con scoring de riesgo, generación de ROS y triage automatizado de alertas de monitoreo transaccional.</div>
+          <div class="case-desc en-content">GPT agent for suspicious transaction analysis with risk scoring, SAR generation, and automated triage of transaction monitoring alerts.</div>
+          <div class="case-badges">
+            <span class="badge badge-green">FATF</span>
+            <span class="badge badge-slate">GPT Agent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METODOLOGÍA -->
+<section id="metodologia" style="background:var(--ice2);border-top:1px solid var(--border)">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label es-content">Modelo de Entrega</div>
+      <div class="section-label en-content">Delivery Model</div>
+      <h2 class="section-title es-content">Valor demostrable en cada fase</h2>
+      <h2 class="section-title en-content">Demonstrable value at every phase</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="method-steps">
+      <div class="method-step fade-in">
+        <div class="step-num">01</div>
+        <div class="step-title es-content">Diagnóstico</div>
+        <div class="step-title en-content">Diagnosis</div>
+        <div class="step-desc es-content">Levantamiento metodológico, revisión del marco regulatorio aplicable y definición de alcance del agente o herramienta.</div>
+        <div class="step-desc en-content">Methodological survey, review of applicable regulatory framework, and scope definition of the agent or tool.</div>
+        <div class="step-connector">→</div>
+      </div>
+      <div class="method-step fade-in">
+        <div class="step-num">02</div>
+        <div class="step-title es-content">Diseño</div>
+        <div class="step-title en-content">Design</div>
+        <div class="step-desc es-content">Arquitectura de la solución IA, diseño de prompts o módulos, validación contra checklist regulatorio.</div>
+        <div class="step-desc en-content">AI solution architecture, prompt or module design, validation against regulatory checklist.</div>
+        <div class="step-connector">→</div>
+      </div>
+      <div class="method-step fade-in">
+        <div class="step-num">03</div>
+        <div class="step-title es-content">Implementación</div>
+        <div class="step-title en-content">Implementation</div>
+        <div class="step-desc es-content">Desarrollo, pruebas funcionales, ajustes iterativos y documentación completa del entregable.</div>
+        <div class="step-desc en-content">Development, functional testing, iterative adjustments, and complete deliverable documentation.</div>
+        <div class="step-connector">→</div>
+      </div>
+      <div class="method-step fade-in">
+        <div class="step-num">04</div>
+        <div class="step-title es-content">Transferencia</div>
+        <div class="step-title en-content">Transfer</div>
+        <div class="step-desc es-content">Capacitación al equipo, manual de usuario, soporte post-entrega y plan de mantenimiento evolutivo.</div>
+        <div class="step-desc en-content">Team training, user manual, post-delivery support, and evolutionary maintenance plan.</div>
+      </div>
+    </div>
+    <div style="margin-top:3rem">
+      <div class="section-label es-content" style="margin-bottom:.75rem">Marcos de Referencia</div>
+      <div class="section-label en-content" style="margin-bottom:.75rem">Reference Frameworks</div>
+      <div class="fw-grid">
+        <span class="fw-chip">Basel II / III</span>
+        <span class="fw-chip">COSO ERM 2017</span>
+        <span class="fw-chip">ISO 31000:2018</span>
+        <span class="fw-chip">ISO 22301:2019</span>
+        <span class="fw-chip">COBIT 2019</span>
+        <span class="fw-chip">IFRS 9</span>
+        <span class="fw-chip">Resolución 370-15 SIPEN</span>
+        <span class="fw-chip">Resolución 438-20</span>
+        <span class="fw-chip">FATF / GAFI</span>
+        <span class="fw-chip">TIA-942 / Uptime Tier</span>
+        <span class="fw-chip">SBS Perú</span>
+        <span class="fw-chip">CMF Chile</span>
+        <span class="fw-chip">SFC Colombia</span>
+        <span class="fw-chip">BCP Paraguay</span>
+        <span class="fw-chip">ASOBANCARIA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFIL -->
+<section id="perfil">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label es-content">Equipo Directivo</div>
+      <div class="section-label en-content">Leadership</div>
+      <h2 class="section-title es-content">Doble perfil: riesgo bancario + IA</h2>
+      <h2 class="section-title en-content">Dual profile: banking risk + AI</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="profile-grid">
+      <div class="profile-card">
+        <div class="profile-initials">YL</div>
+        <div class="profile-name">Yuri Vladimir Luna Coavoy</div>
+        <div class="profile-role">CEO</div>
+        <div class="profile-sep"></div>
+        <div class="profile-links">
+          <a href="mailto:yuri.luna@primeconsulting-int.com" class="profile-link">✉ yuri.luna@primeconsulting-int.com</a>
+          <a href="tel:+17866050670" class="profile-link">✆ (1) 786-605-0670</a>
+          <a href="https://wa.link/primeconsulting-int" class="profile-link" target="_blank">💬 wa.link/primeconsulting-int</a>
+          <a href="https://primeconsulting-int-dmnuipl.gamma.site/" class="profile-link" target="_blank">🌐 primeconsulting-int-dmnuipl.gamma.site</a>
+        </div>
+        <div class="profile-sep"></div>
+        <div style="font-size:11px;color:rgba(255,255,255,.35);line-height:1.6">
+          Prime Consulting International LLC<br>Miami, FL · América Latina
+        </div>
+      </div>
+      <div class="profile-content">
+        <h3 class="es-content">Consultor con experiencia práctica en banca y tecnología</h3>
+        <h3 class="en-content">Consultant with hands-on experience in banking and technology</h3>
+        <p class="es-content">Especialista en gestión de riesgos financieros con experiencia en el diseño e implementación de soluciones de inteligencia artificial para entidades reguladas en América Latina. CEO de Prime Consulting International LLC, Miami, FL.</p>
+        <p class="en-content">Financial risk management specialist with experience in designing and implementing AI solutions for regulated entities in Latin America. CEO of Prime Consulting International LLC, Miami, FL.</p>
+        <p class="es-content">Combina dominio técnico en riesgo operacional, ALM/liquidez, crédito, capital (ICAAP/RAF), riesgo tecnológico y marcos regulatorios latinoamericanos con capacidad comprobada de desarrollo e implementación de herramientas IA de producción.</p>
+        <p class="en-content">Combines technical mastery in operational risk, ALM/liquidity, credit, capital (ICAAP/RAF), technological risk, and Latin American regulatory frameworks with proven ability to develop and implement production-grade AI tools.</p>
+        <div class="expertise-grid">
+          <div class="expertise-item es-content">Riesgo Operacional (Basel II/III)</div>
+          <div class="expertise-item es-content">ICAAP · RAF · Capital Adequacy</div>
+          <div class="expertise-item es-content">ALM / Liquidez / IRRBB</div>
+          <div class="expertise-item es-content">Continuidad de Negocio (ISO 22301)</div>
+          <div class="expertise-item es-content">Gobernanza IA · SGRIA</div>
+          <div class="expertise-item es-content">Modelos LDA · Monte Carlo · VaR</div>
+          <div class="expertise-item es-content">GPT Agents · Dashboards Standalone</div>
+          <div class="expertise-item es-content">Regulación Latam (SIPEN, SBS, CMF)</div>
+          <div class="expertise-item en-content">Operational Risk (Basel II/III)</div>
+          <div class="expertise-item en-content">ICAAP · RAF · Capital Adequacy</div>
+          <div class="expertise-item en-content">ALM / Liquidity / IRRBB</div>
+          <div class="expertise-item en-content">Business Continuity (ISO 22301)</div>
+          <div class="expertise-item en-content">AI Governance · SGRIA</div>
+          <div class="expertise-item en-content">LDA · Monte Carlo · VaR Models</div>
+          <div class="expertise-item en-content">GPT Agents · Standalone Dashboards</div>
+          <div class="expertise-item en-content">Latam Regulation (SIPEN, SBS, CMF)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contact-bg">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label es-content">Consulta Ejecutiva</div>
+      <div class="section-label en-content">Executive Consultation</div>
+      <h2 class="section-title es-content">Agendemos una conversación</h2>
+      <h2 class="section-title en-content">Let's schedule a conversation</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3 class="es-content">¿Listo para transformar la gestión de riesgo de su institución con IA?</h3>
+        <h3 class="en-content">Ready to transform your institution's risk management with AI?</h3>
+        <p class="es-content">Conversemos sobre los desafíos específicos de su equipo de riesgo. Identificamos en la primera sesión qué solución genera mayor impacto en el menor tiempo.</p>
+        <p class="en-content">Let's discuss your risk team's specific challenges. In the first session we identify which solution generates the greatest impact in the shortest time.</p>
+        <div class="contact-detail">
+          <span>✉</span>
+          <div><strong>informes@primeconsulting-int.com</strong></div>
+        </div>
+        <div class="contact-detail">
+          <span>✆</span>
+          <div><strong>(1) 786-605-0670</strong></div>
+        </div>
+        <div class="contact-detail">
+          <span>💬</span>
+          <div><a href="https://wa.link/primeconsulting-int" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:500">WhatsApp: wa.link/primeconsulting-int</a></div>
+        </div>
+        <div class="contact-detail">
+          <span>⬡</span>
+          <div><a href="https://primeconsulting-int-dmnuipl.gamma.site/" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:500">primeconsulting-int-dmnuipl.gamma.site</a></div>
+        </div>
+        <div style="margin-top:1.5rem;padding:1rem;background:var(--white);border:1px solid var(--border);border-radius:6px;border-left:3px solid var(--gold)">
+          <div style="font-size:12px;font-weight:500;color:var(--navy);margin-bottom:.3rem">
+            <span class="es-content">Tiempo de respuesta</span>
+            <span class="en-content">Response time</span>
+          </div>
+          <div style="font-size:13px;color:var(--muted)">
+            <span class="es-content">Respuesta en menos de 24 horas hábiles.</span>
+            <span class="en-content">Response within 24 business hours.</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-group">
+          <label id="lbl-name">Nombre y Cargo</label>
+          <input type="text" id="cf-name" placeholder="Ej. Juan Pérez — CRO"/>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="cf-email" placeholder="correo@banco.com"/>
+        </div>
+        <div class="form-group">
+          <label id="lbl-inst">Institución</label>
+          <input type="text" id="cf-inst" placeholder="Banco / AFP / Aseguradora"/>
+        </div>
+        <div class="form-group">
+          <label id="lbl-area">Área de Interés</label>
+          <select id="cf-area">
+            <option value="">-- Seleccionar --</option>
+            <option value="riesgo-operacional">Riesgo Operacional</option>
+            <option value="riesgo-tecnologico">Riesgo Tecnológico</option>
+            <option value="ciberseguridad">Riesgo Seguridad - Ciberseguridad</option>
+            <option value="continuidad">Continuidad del Negocio</option>
+            <option value="capital-icaap">Capital ICAAP</option>
+            <option value="gobierno">Gobierno Corporativo</option>
+            <option value="cumplimiento">Cumplimiento Normativo</option>
+            <option value="mercado-liquidez">Riesgo de Mercado y Liquidez</option>
+            <option value="crediticio">Riesgo Crediticio</option>
+            <option value="estrategico">Riesgo Estratégico</option>
+            <option value="reputacional">Riesgo Reputacional</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label id="lbl-msg">Mensaje</label>
+          <textarea id="cf-msg" placeholder="Describa brevemente su necesidad o desafío..."></textarea>
+        </div>
+        <button class="form-submit" id="form-submit-btn" onclick="openBooking()">Agendar Consulta en Calendario</button>
+        <div class="form-note" id="form-status"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">PRIME CONSULTING INTERNATIONAL LLC</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.06em;margin-bottom:.3rem">Risk. Governance. Continuity. Compliance.</div>
+        <div class="footer-brand-line">FinRisk IA Solutions — Inteligencia artificial aplicada al riesgo que importa.</div>
+        <div class="footer-brand-desc">
+          <span class="es-content">Firma especializada en diseño e implementación de soluciones de IA para gestión del riesgo operacional en entidades financieras latinoamericanas. Miami, FL.</span>
+          <span class="en-content">Firm specialized in designing and implementing AI solutions for operational risk management in Latin American financial institutions. Miami, FL.</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="es-content">Servicios</h4>
+        <h4 class="en-content">Services</h4>
+        <ul>
+          <li><a href="#servicios">Agentes IA de Riesgo</a></li>
+          <li><a href="#servicios">Dashboards Analíticos</a></li>
+          <li><a href="#servicios">Evaluación de Riesgos IA</a></li>
+          <li><a href="#servicios">Gobernanza IA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="es-content">Contacto</h4>
+        <h4 class="en-content">Contact</h4>
+        <ul>
+          <li><a href="mailto:informes@primeconsulting-int.com">informes@primeconsulting-int.com</a></li>
+          <li><a href="tel:+17866050670">(1) 786-605-0670</a></li>
+          <li><a href="https://wa.link/primeconsulting-int" target="_blank">WhatsApp</a></li>
+          <li><a href="https://primeconsulting-int-dmnuipl.gamma.site" target="_blank">primeconsulting-int.com</a></li>
+          <li><a href="#contacto">Agendar Consulta</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Prime Consulting International LLC · Risk. Governance. Continuity. Compliance. · Miami, FL</span>
+      <div class="footer-bottom-right">
+        <span>Risk. Governance. Continuity. Compliance.</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div>
+        <div class="modal-head-title" id="modal-title">Agendar Consulta Ejecutiva</div>
+        <div class="modal-head-sub">FinRisk IA Solutions · Prime Consulting International</div>
+      </div>
+      <button class="modal-close" onclick="closeBooking()">✕</button>
+    </div>
+    <div class="modal-body">
+      <!-- Steps indicator -->
+      <div class="booking-steps">
+        <div class="bstep active" id="bstep-1">
+          <div class="bstep-num">1</div>
+          <div class="es-content">Sus datos</div>
+          <div class="en-content">Your info</div>
+        </div>
+        <div class="bstep" id="bstep-2">
+          <div class="bstep-num">2</div>
+          <div class="es-content">Fecha y hora</div>
+          <div class="en-content">Date & time</div>
+        </div>
+        <div class="bstep" id="bstep-3">
+          <div class="bstep-num">3</div>
+          <div class="es-content">Confirmar</div>
+          <div class="en-content">Confirm</div>
+        </div>
+      </div>
+
+      <!-- Step 1: Datos del cliente -->
+      <div class="booking-step-panel active" id="bpanel-1">
+        <div class="bform-row">
+          <div class="bform-group">
+            <label id="bl-name">Nombre completo *</label>
+            <input type="text" id="b-name" placeholder="Ej. Ana García"/>
+          </div>
+          <div class="bform-group">
+            <label id="bl-title">Cargo</label>
+            <input type="text" id="b-title" placeholder="CRO / Gerente de Riesgo"/>
+          </div>
+        </div>
+        <div class="bform-group">
+          <label>Email *</label>
+          <input type="email" id="b-email" placeholder="correo@institucion.com"/>
+        </div>
+        <div class="bform-group">
+          <label id="bl-inst">Institución</label>
+          <input type="text" id="b-inst" placeholder="Banco / AFP / Aseguradora"/>
+        </div>
+        <div class="bform-group">
+          <label id="bl-area">Área de interés</label>
+          <select id="b-area">
+            <option value="Riesgo Operacional">Riesgo Operacional</option>
+            <option value="Riesgo Tecnológico">Riesgo Tecnológico</option>
+            <option value="Riesgo Seguridad - Ciberseguridad">Riesgo Seguridad - Ciberseguridad</option>
+            <option value="Continuidad del Negocio">Continuidad del Negocio</option>
+            <option value="Capital ICAAP">Capital ICAAP</option>
+            <option value="Gobierno Corporativo">Gobierno Corporativo</option>
+            <option value="Cumplimiento Normativo">Cumplimiento Normativo</option>
+            <option value="Riesgo de Mercado y Liquidez">Riesgo de Mercado y Liquidez</option>
+            <option value="Riesgo Crediticio">Riesgo Crediticio</option>
+            <option value="Riesgo Estratégico">Riesgo Estratégico</option>
+            <option value="Riesgo Reputacional">Riesgo Reputacional</option>
+          </select>
+        </div>
+        <div class="bform-group">
+          <label id="bl-msg">Descripción breve de su necesidad</label>
+          <textarea id="b-msg" placeholder="Describa el desafío o proyecto en mente..."></textarea>
+        </div>
+        <div class="booking-actions">
+          <button class="btn-next" onclick="bookingNext(1)">
+            Siguiente →
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Fecha y hora -->
+      <div class="booking-step-panel" id="bpanel-2">
+        <div class="bform-row">
+          <div class="bform-group">
+            <label id="bl-date">Fecha preferida *</label>
+            <input type="date" id="b-date" onchange="updateTimeSlots()"/>
+            <div class="bform-hint" id="bl-tz">Zona horaria: America/New_York (Miami)</div>
+          </div>
+          <div class="bform-group">
+            <label id="bl-dur">Duración</label>
+            <select id="b-duration">
+              <option value="30" id="bl-30">30 minutos</option>
+              <option value="60" selected id="bl-60">60 minutos</option>
+              <option value="90" id="bl-90">90 minutos</option>
+            </select>
+          </div>
+        </div>
+        <div class="bform-group">
+          <label id="bl-time">Horario disponible *</label>
+          <div class="time-grid" id="timeGrid">
+            <div class="time-slot" onclick="selectTime(this,'09:00')">9:00 AM</div>
+            <div class="time-slot" onclick="selectTime(this,'10:00')">10:00 AM</div>
+            <div class="time-slot" onclick="selectTime(this,'11:00')">11:00 AM</div>
+            <div class="time-slot" onclick="selectTime(this,'12:00')">12:00 PM</div>
+            <div class="time-slot" onclick="selectTime(this,'14:00')">2:00 PM</div>
+            <div class="time-slot" onclick="selectTime(this,'15:00')">3:00 PM</div>
+            <div class="time-slot" onclick="selectTime(this,'16:00')">4:00 PM</div>
+            <div class="time-slot" onclick="selectTime(this,'17:00')">5:00 PM</div>
+            <div class="time-slot" onclick="selectTime(this,'18:00')">6:00 PM</div>
+          </div>
+          <div class="bform-hint es-content" style="margin-top:.5rem">Todos los horarios en hora Miami (ET)</div>
+          <div class="bform-hint en-content" style="margin-top:.5rem">All times in Miami time (ET)</div>
+        </div>
+        <div class="booking-actions">
+          <button class="btn-back" onclick="bookingBack(2)">
+            ← Atrás
+          </button>
+          <button class="btn-next" onclick="bookingNext(2)">
+            Revisar →
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: Confirmación -->
+      <div class="booking-step-panel" id="bpanel-3">
+        <p style="font-size:13px;color:var(--muted);margin-bottom:1rem" id="bl-confirm-hint">Revise los detalles antes de confirmar. Se creará un evento en Google Calendar con enlace Google Meet.</p>
+        <div class="booking-summary" id="bookingSummary"></div>
+        <div class="booking-actions">
+          <button class="btn-back" onclick="bookingBack(3)">
+            ← Atrás
+          </button>
+          <button class="btn-next" id="confirmBtn" onclick="confirmBooking()">
+            ✓ Confirmar y Agendar
+          </button>
+        </div>
+      </div>
+
+      <!-- Loading -->
+      <div class="booking-step-panel" id="bpanel-loading">
+        <div class="booking-loading">
+          <div class="booking-spinner"></div>
+          <div style="font-size:14px;color:var(--muted)">Agendando en Google Calendar...</div>
+        </div>
+      </div>
+
+      <!-- Success -->
+      <div class="booking-step-panel" id="bpanel-success">
+        <div class="booking-success">
+          <div class="booking-success-icon">✅</div>
+          <div class="booking-success-title">¡Consulta agendada!</div>
+          <div class="booking-success-sub">El evento ha sido creado en Google Calendar. Recibirá una invitación con el enlace de Google Meet en su correo electrónico.</div>
+          <div class="booking-success-event" id="successEventDetails"></div>
+          <div style="margin-top:1.25rem">
+            <button class="btn-next" onclick="closeBooking()" style="width:100%">
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error -->
+      <div class="booking-step-panel" id="bpanel-error">
+        <div class="booking-success">
+          <div class="booking-success-icon">⚠️</div>
+          <div class="booking-success-title">No se pudo agendar</div>
+          <div class="booking-success-sub" id="errorMsg"></div>
+          <div style="display:flex;gap:.75rem;justify-content:center;margin-top:1rem">
+            <button class="btn-back" onclick="showBPanel(3)">
+              Reintentar
+            </button>
+            <button class="btn-next" onclick="closeBooking()">
+              <span class="es-content">Cerrar</span>
+              <span class="en-content">Close</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CHATBOT FAB -->
+<div class="chat-fab">
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-head">
+      <div>
+        <div class="chat-head-title">FinRisk IA · Asistente</div>
+        <div class="chat-head-sub">Prime Consulting International LLC</div>
+      </div>
+      <button class="chat-close" onclick="toggleChat()">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg bot">Hola, soy el asistente de FinRisk IA Solutions. ¿En qué puedo ayudarle? Puedo orientarle sobre nuestros servicios de IA para gestión del riesgo operacional, metodología o casos de uso específicos.</div>
+    </div>
+    <div class="chat-thinking" id="chatThinking" style="display:none">Procesando...</div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chatInput" placeholder="Escriba su consulta..." onkeydown="if(event.key==='Enter')sendChat()"/>
+      <button class="chat-send" onclick="sendChat()">→</button>
+    </div>
+  </div>
+  <button class="chat-btn" onclick="toggleChat()" title="Asistente FinRisk IA">💬</button>
+</div>
+
+<script>
+const DIFF_DATA_ES = [
+  ["Especialización sectorial","IA horizontal, sin profundidad regulatoria financiera.","100% foco en riesgo financiero: Basel, COSO, ISO, reguladores Latam."],
+  ["Entregables regulatorios","Solo tecnología. Documentación regulatoria = responsabilidad del cliente.","Paquetes completos: agente + manuales + pruebas + informe de cierre + gobernanza."],
+  ["Autonomía tecnológica","Alta dependencia de plataformas cloud externas.","Herramientas standalone sin backend — operan en intranet bancaria."],
+  ["Perfil del consultor","Data scientists sin experiencia en riesgo bancario regulado.","Doble perfil: experto riesgo operacional bancario + diseño e implementación IA."],
+  ["Cobertura regional","Marcos globales. Sin conocimiento de reguladores locales.","Experiencia directa con SIPEN, SBS, CMF, SFC, BCP y otros reguladores Latam."],
+  ["Velocidad de entrega","Proyectos de 6–12 meses. Valor visible tarde.","Módulos de 4–8 semanas. Valor demostrable desde el primer entregable."],
+];
+const DIFF_DATA_EN = [
+  ["Sector specialization","Horizontal AI, no financial regulatory depth.","100% focus on financial risk: Basel, COSO, ISO, Latam regulators."],
+  ["Regulatory deliverables","Technology only. Regulatory documentation = client's responsibility.","Full packages: agent + manuals + testing + closure report + governance."],
+  ["Technology autonomy","High dependency on external cloud platforms.","Standalone tools without backend — operate on banking intranet."],
+  ["Consultant profile","Data scientists without regulated banking risk experience.","Dual profile: banking operational risk expert + AI design & implementation."],
+  ["Regional coverage","Global frameworks. No knowledge of local regulators.","Direct experience with SIPEN, SBS, CMF, SFC, BCP, and other Latam regulators."],
+  ["Delivery speed","Projects of 6–12 months. Value visible late.","4–8 week modules. Demonstrable value from the first deliverable."],
+];
+
+function buildDiffTable(){
+  const isEn = document.body.classList.contains('lang-en');
+  const data = isEn ? DIFF_DATA_EN : DIFF_DATA_ES;
+  const tbody = document.getElementById('diff-tbody');
+  tbody.innerHTML = data.map(([crit,gen,ours])=>`
+    <tr>
+      <td style="background:rgba(255,255,255,.03);padding:.85rem 1rem;font-size:12px;font-weight:500;color:rgba(255,255,255,.6);border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top">${crit}</td>
+      <td style="background:rgba(255,255,255,.02);padding:.85rem 1rem;font-size:12px;color:rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;line-height:1.5">${gen}</td>
+      <td style="background:rgba(26,126,212,.06);padding:.85rem 1rem;font-size:12px;color:rgba(255,255,255,.8);font-weight:500;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;line-height:1.5">${ours}</td>
+    </tr>`).join('');
+}
+buildDiffTable();
+
+let lang = 'es';
+
+const TEXTS = {
+  es: {
+    topbarLoc:    'Miami, FL · América Latina · informes@primeconsulting-int.com',
+    topbarContact:'Contacto',
+    navCta:       'Solicitar Consulta',
+    heroBtn1:     'Agendar Consulta Ejecutiva',
+    heroBtn2:     'Ver Servicios',
+    modalTitle:   'Agendar Consulta Ejecutiva',
+    langBtn:      'EN',
+    lblName:      'Nombre y Cargo',
+    lblInst:      'Institución',
+    lblArea:      'Área de Interés',
+    lblMsg:       'Mensaje',
+    formBtn:      'Agendar Consulta en Calendario',
+    blName:   'Nombre completo *', blTitle: 'Cargo', blInst: 'Institución',
+    blArea:   'Área de interés', blMsg: 'Descripción breve de su necesidad',
+    blDate:   'Fecha preferida *', blDur: 'Duración', blTime: 'Horario disponible *',
+    blTz:     'Zona horaria: America/New_York (Miami)',
+    bl30: '30 minutos', bl60: '60 minutos', bl90: '90 minutos',
+    blConfirm: 'Revise los detalles antes de confirmar. Se creará un evento en Google Calendar con enlace Google Meet.',
+  },
+  en: {
+    topbarLoc:    'Miami, FL · Latin America · informes@primeconsulting-int.com',
+    topbarContact:'Contact',
+    navCta:       'Request a Consultation',
+    heroBtn1:     'Schedule Executive Consultation',
+    heroBtn2:     'View Services',
+    modalTitle:   'Schedule Executive Consultation',
+    langBtn:      'ES',
+    lblName:      'Name and Title',
+    lblInst:      'Institution',
+    lblArea:      'Area of Interest',
+    lblMsg:       'Message',
+    formBtn:      'Schedule Consultation in Calendar',
+    blName:   'Full name *', blTitle: 'Title', blInst: 'Institution',
+    blArea:   'Area of interest', blMsg: 'Brief description of your need',
+    blDate:   'Preferred date *', blDur: 'Duration', blTime: 'Available time slot *',
+    blTz:     'Time zone: America/New_York (Miami)',
+    bl30: '30 minutes', bl60: '60 minutes', bl90: '90 minutes',
+    blConfirm: 'Review details before confirming. A Google Calendar event with Google Meet link will be created.'
+  }
+};
+
+function applyLang(l){
+  const t = TEXTS[l];
+  const set = (id, txt) => { const el=document.getElementById(id); if(el) el.textContent=txt; };
+  set('topbar-loc',     t.topbarLoc);
+  set('topbar-contact', t.topbarContact);
+  set('nav-cta-btn',    t.navCta);
+  set('hero-btn1',      t.heroBtn1);
+  set('hero-btn2',      t.heroBtn2);
+  set('modal-title',    t.modalTitle);
+  set('lbl-name',       t.lblName);
+  set('lbl-inst',       t.lblInst);
+  set('lbl-area',       t.lblArea);
+  set('lbl-msg',        t.lblMsg);
+  set('form-submit-btn',t.formBtn);
+  // Booking modal labels
+  const bset = (id,txt)=>{const el=document.getElementById(id);if(el)el.textContent=txt;};
+  bset('bl-name', t.blName); bset('bl-title', t.blTitle); bset('bl-inst', t.blInst);
+  bset('bl-area', t.blArea); bset('bl-msg',   t.blMsg);   bset('bl-date', t.blDate);
+  bset('bl-dur',  t.blDur);  bset('bl-time',  t.blTime);  bset('bl-tz',   t.blTz);
+  bset('bl-30',   t.bl30);   bset('bl-60',    t.bl60);    bset('bl-90',   t.bl90);
+  bset('bl-confirm-hint', t.blConfirm);
+  document.body.classList.toggle('lang-en', l==='en');
+}
+
+function toggleLang(){
+  lang = lang==='es' ? 'en' : 'es';
+  applyLang(lang);
+  buildDiffTable();
+}
+
+function goTo(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+/* ═══════════════════════════════════════
+   BOOKING MODAL — Google Calendar MCP
+═══════════════════════════════════════ */
+let selectedTime = null;
+const OWNER_EMAIL = 'informes@primeconsulting-int.com';
+const OWNER_TZ    = 'America/New_York';
+
+function openBooking(){
+  document.getElementById('bookingModal').classList.add('open');
+  document.body.style.overflow='hidden';
+  // set min date = today
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('b-date').setAttribute('min', today);
+}
+function closeBooking(){
+  document.getElementById('bookingModal').classList.remove('open');
+  document.body.style.overflow='';
+  // reset to step 1
+  setTimeout(()=>{ resetBooking(); }, 300);
+}
+function resetBooking(){
+  showBPanel(1);
+  ['b-name','b-title','b-email','b-inst','b-msg'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value='';
+  });
+  document.getElementById('b-area').selectedIndex=0;
+  document.getElementById('b-date').value='';
+  document.getElementById('b-duration').value='60';
+  selectedTime=null;
+  document.querySelectorAll('.time-slot').forEach(s=>s.classList.remove('selected'));
+  ['bstep-1','bstep-2','bstep-3'].forEach((id,i)=>{
+    const el=document.getElementById(id);
+    el.classList.remove('active','done');
+    if(i===0) el.classList.add('active');
+  });
+}
+
+function showBPanel(n){
+  document.querySelectorAll('.booking-step-panel').forEach(p=>p.classList.remove('active'));
+  const panels=['bpanel-1','bpanel-2','bpanel-3','bpanel-loading','bpanel-success','bpanel-error'];
+  if(typeof n === 'number' && n<=3){
+    document.getElementById('bpanel-'+n).classList.add('active');
+  } else {
+    document.getElementById(n).classList.add('active');
+  }
+}
+
+function bookingNext(step){
+  if(step===1){
+    const name  = document.getElementById('b-name').value.trim();
+    const email = document.getElementById('b-email').value.trim();
+    if(!name || !email){ alert('Por favor ingrese nombre y email.'); return; }
+    if(!/\S+@\S+\.\S+/.test(email)){ alert('Email no válido.'); return; }
+    document.getElementById('bstep-1').classList.remove('active');
+    document.getElementById('bstep-1').classList.add('done');
+    document.getElementById('bstep-2').classList.add('active');
+    showBPanel(2);
+  } else if(step===2){
+    const date = document.getElementById('b-date').value;
+    if(!date){ alert('Por favor seleccione una fecha.'); return; }
+    if(!selectedTime){ alert('Por favor seleccione un horario.'); return; }
+    // Build summary
+    buildSummary();
+    document.getElementById('bstep-2').classList.remove('active');
+    document.getElementById('bstep-2').classList.add('done');
+    document.getElementById('bstep-3').classList.add('active');
+    showBPanel(3);
+  }
+}
+function bookingBack(step){
+  if(step===2){
+    document.getElementById('bstep-2').classList.remove('active');
+    document.getElementById('bstep-1').classList.remove('done');
+    document.getElementById('bstep-1').classList.add('active');
+    showBPanel(1);
+  } else if(step===3){
+    document.getElementById('bstep-3').classList.remove('active');
+    document.getElementById('bstep-2').classList.remove('done');
+    document.getElementById('bstep-2').classList.add('active');
+    showBPanel(2);
+  }
+}
+
+function selectTime(el, time){
+  document.querySelectorAll('.time-slot').forEach(s=>s.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedTime = time;
+}
+
+function updateTimeSlots(){
+  const date = document.getElementById('b-date').value;
+  if(!date) return;
+  const dow = new Date(date+'T12:00:00').getDay();
+  document.querySelectorAll('.time-slot').forEach((slot,i)=>{
+    // weekend: disable most slots
+    if(dow===0||dow===6){
+      slot.classList.add('disabled');
+    } else {
+      slot.classList.remove('disabled');
+    }
+  });
+}
+
+function buildSummary(){
+  const name  = document.getElementById('b-name').value.trim();
+  const title = document.getElementById('b-title').value.trim();
+  const email = document.getElementById('b-email').value.trim();
+  const inst  = document.getElementById('b-inst').value.trim();
+  const area  = document.getElementById('b-area').value;
+  const date  = document.getElementById('b-date').value;
+  const dur   = document.getElementById('b-duration').value;
+  const [hh,mm] = selectedTime.split(':').map(Number);
+  const d = new Date(date+'T'+selectedTime+':00');
+  const dateStr = d.toLocaleDateString('es-ES',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  const timeStr = selectedTime+' ET (Miami)';
+  const endH    = String(hh + Math.floor(dur/60)).padStart(2,'0');
+  const endM    = String(mm + (dur%60)).padStart(2,'0');
+  const rows = [
+    ['Nombre',    name+(title?` — ${title}`:'')],
+    ['Email',     email],
+    ['Institución', inst||'—'],
+    ['Área',      area],
+    ['Fecha',     dateStr],
+    ['Hora',      `${timeStr} → ${endH}:${endM} ET`],
+    ['Duración',  dur+' minutos'],
+    ['Modalidad', 'Google Meet (enlace automático)'],
+  ];
+  document.getElementById('bookingSummary').innerHTML = rows.map(([l,v])=>`
+    <div class="bsummary-row"><span class="bsummary-label">${l}</span><span class="bsummary-val">${v}</span></div>
+  `).join('');
+}
+
+async function confirmBooking(){
+  const name  = document.getElementById('b-name').value.trim();
+  const title = document.getElementById('b-title').value.trim();
+  const email = document.getElementById('b-email').value.trim();
+  const inst  = document.getElementById('b-inst').value.trim();
+  const area  = document.getElementById('b-area').value;
+  const msg   = document.getElementById('b-msg').value.trim();
+  const date  = document.getElementById('b-date').value;
+  const dur   = parseInt(document.getElementById('b-duration').value);
+  const [hh,mm] = selectedTime.split(':').map(Number);
+
+  // Build ISO times in Miami (ET = UTC-4 or UTC-5; use local offset from browser or fixed -4 for Miami summer)
+  const startISO = `${date}T${String(hh).padStart(2,'0')}:${String(mm).padStart(2,'0')}:00`;
+  const endDate  = new Date(date+'T'+startISO.split('T')[1]);
+  endDate.setMinutes(endDate.getMinutes()+dur);
+  const endISO   = `${date}T${String(endDate.getHours()).padStart(2,'0')}:${String(endDate.getMinutes()).padStart(2,'0')}:00`;
+
+  showBPanel('bpanel-loading');
+  document.getElementById('confirmBtn').disabled=true;
+
+  const eventTitle   = `Consulta FinRisk IA Solutions — ${name}${inst?' ('+inst+')':''}`;
+  const eventDesc    = `<b>Consulta Ejecutiva — FinRisk IA Solutions</b><br><br>` +
+    `<b>Cliente:</b> ${name}${title?' — '+title:''}<br>` +
+    `<b>Email:</b> ${email}<br>` +
+    `<b>Institución:</b> ${inst||'—'}<br>` +
+    `<b>Área de interés:</b> ${area}<br><br>` +
+    `<b>Descripción:</b><br>${msg||'Sin descripción adicional.'}<br><br>` +
+    `<i>Agendado desde FinRisk IA Solutions — Prime Consulting International LLC</i>`;
+
+  const calPrompt = `Crea un evento en Google Calendar con los siguientes datos exactos:
+- Título: "${eventTitle}"
+- Inicio: ${startISO} (zona horaria: ${OWNER_TZ})
+- Fin: ${endISO} (zona horaria: ${OWNER_TZ})
+- Descripción (HTML): ${eventDesc}
+- Asistentes: agrega al invitado con email "${email}"
+- Agrega un enlace de Google Meet
+- Zona horaria: ${OWNER_TZ}
+- Color: 9 (Blueberry)
+- Recordatorio por email 24 horas antes y popup 30 minutos antes
+
+Confirma cuando el evento haya sido creado exitosamente y devuelve el ID del evento y el enlace de Google Meet si está disponible.`;
+
+  try {
+    const r = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1024,
+        mcp_servers:[{
+          type:'url',
+          url:'https://calendarmcp.googleapis.com/mcp/v1',
+          name:'google-calendar'
+        }],
+        messages:[{role:'user', content: calPrompt}]
+      })
+    });
+    const data = await r.json();
+
+    // Extract text response from content blocks
+    const textBlocks = (data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('\n');
+    const toolResults= (data.content||[]).filter(b=>b.type==='mcp_tool_result');
+
+    // Try to detect success — look for event ID or meet link in response
+    const hasSuccess = textBlocks.toLowerCase().includes('creado') ||
+                       textBlocks.toLowerCase().includes('created') ||
+                       textBlocks.toLowerCase().includes('event') ||
+                       toolResults.length > 0;
+
+    if(hasSuccess || data.stop_reason==='end_turn'){
+      // Extract meet link if present
+      const meetMatch = textBlocks.match(/https:\/\/meet\.google\.com\/[a-z0-9\-]+/i);
+      const meetLink  = meetMatch ? meetMatch[0] : null;
+
+      const d = new Date(date+'T'+startISO.split('T')[1]);
+      const dateLabel = d.toLocaleDateString('es-ES',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+
+      document.getElementById('successEventDetails').innerHTML = `
+        <div style="font-weight:500;margin-bottom:.5rem;color:var(--navy)">📅 ${eventTitle}</div>
+        <div style="color:var(--muted);margin-bottom:.25rem">🗓 ${dateLabel}</div>
+        <div style="color:var(--muted);margin-bottom:.25rem">⏰ ${selectedTime} ET → ${String(endDate.getHours()).padStart(2,'0')}:${String(endDate.getMinutes()).padStart(2,'0')} ET · ${dur} min</div>
+        <div style="color:var(--muted);margin-bottom:.5rem">📧 Invitación enviada a ${email}</div>
+        ${meetLink?`<div style="margin-top:.5rem"><a href="${meetLink}" target="_blank">🎥 Unirse a Google Meet</a></div>`:'<div style="color:var(--muted);font-size:12px;margin-top:.5rem">Enlace Meet incluido en la invitación de calendario.</div>'}
+      `;
+      showBPanel('bpanel-success');
+    } else {
+      throw new Error(textBlocks || 'Respuesta inesperada de la API');
+    }
+  } catch(err){
+    console.error('Booking error:', err);
+    const isLang = document.body.classList.contains('lang-en');
+    document.getElementById('errorMsg').textContent = isLang
+      ? `Could not create the event: ${err.message}. Please contact us directly at informes@primeconsulting-int.com`
+      : `No se pudo crear el evento: ${err.message}. Contáctenos en informes@primeconsulting-int.com o por WhatsApp: https://wa.link/primeconsulting-int`;
+    showBPanel('bpanel-error');
+  }
+  document.getElementById('confirmBtn').disabled=false;
+}
+
+// Close modal clicking overlay
+document.getElementById('bookingModal').addEventListener('click', function(e){
+  if(e.target===this) closeBooking();
+});
+
+/* ═══════════════════════════════════════
+   CHATBOT — Claude API (FinRisk IA Agent)
+═══════════════════════════════════════ */
+let chatOpen=false;
+function toggleChat(){
+  chatOpen=!chatOpen;
+  document.getElementById('chatWindow').classList.toggle('open',chatOpen);
+  if(chatOpen) document.getElementById('chatInput').focus();
+}
+
+const CHAT_SYSTEM = `Eres el Agente IA de FinRisk IA Solutions, línea especializada de Prime Consulting International LLC (Miami, FL).
+CEO: Yuri Vladimir Luna Coavoy.
+Email: informes@primeconsulting-int.com | Teléfono/WhatsApp: (1) 786-605-0670 | WhatsApp: https://wa.link/primeconsulting-int
+
+IDENTIDAD Y POSICIONAMIENTO:
+FinRisk IA Solutions es la única firma especializada en diseño e implementación de soluciones de IA para gestión del riesgo operacional en entidades financieras latinoamericanas.
+Tagline: "Inteligencia artificial aplicada al riesgo que importa."
+Propuesta C-Suite: "Transformamos el riesgo operacional en ventaja competitiva con inteligencia artificial."
+
+DIFERENCIADORES CLAVE:
+- Doble perfil: experto riesgo operacional bancario + diseño/implementación IA
+- 100% foco sector financiero: Basel II/III, COSO ERM 2017, ISO 31000, reguladores Latam
+- Entregables regulatorios completos (no solo tecnología): agente + manuales + pruebas + cierre + gobernanza
+- Herramientas standalone sin dependencias externas (operan en intranet bancaria)
+- Entrega ágil: módulos de 4-8 semanas con valor demostrable desde el primer sprint
+- Cobertura nativa Latam: SIPEN, SBS Perú, CMF Chile, SFC Colombia, BCP Paraguay, ASOBANCARIA
+
+LÍNEAS DE SERVICIO:
+1. Diseño de Agentes IA de Riesgo — GPT Agents para riesgo operacional, BCM, compliance (AROO, BCM Agent, CI-KRI, GSI). Incluye prompt maestro, manual técnico, manual usuario, plan pruebas, informe cierre.
+2. Dashboards e Inteligencia de Riesgo — RCSA, ORMON, ICAAP, SGRIA, SIGRML, SGRC, SGCN standalone HTML/JS. KRI/KPI/KCI, LDA, Monte Carlo, VaR, sVaR, LCR, NSFR, IRRBB.
+3. Evaluación de Riesgos en Implementaciones de IA — ISO 23894:2023, NIST AI RMF. Inventario de sistemas IA, RAIA, matrices de riesgo de modelos, plan de tratamiento, informe para Directorio y regulador.
+4. Gobernanza IA & Cumplimiento Regulatorio — POL/MAN/MET/PRO-RO-IA, matrices SGRIA (F-IA-001 a F-IA-019), alineación regulatoria.
+
+PORTAFOLIO ACTIVO: SGRIA, ORION-IA, SGCN, ICAAP/RAF, SIGRML (VaR/LCR/NSFR/IRRBB), SGRC Basel III CCR/CVA/IFRS9, RCSA, ORMON, AIRAT, DC-RAA (TIA-942), AROO v1/v2, BCM Agent, CI-KRI Agent, GSI Crecer Agent.
+
+MERCADOS: Banca universal, AFP, aseguradoras, financieras reguladas. República Dominicana, Paraguay, Perú, Colombia, Chile, mercados andinos/caribeños.
+
+PERFIL DEL INTERLOCUTOR:
+Tu interlocutor es un profesional senior: CRO, gerente de riesgo operacional, director de cumplimiento o auditor interno de una entidad financiera. Conoce perfectamente Basel, COSO, ISO 31000, RCSA, KRIs, ICAAP, BCM. NO necesita que le expliques qué es el riesgo operacional ni los marcos regulatorios — ya los domina.
+
+INSTRUCCIONES DE RESPUESTA:
+- Responde siempre en el idioma del usuario (español o inglés)
+- Ve DIRECTO al punto: qué solución tenemos, cómo la implementamos, qué entregamos, en cuánto tiempo. Sin preámbulos ni diagnósticos del tema consultado.
+- NUNCA definas conceptos que el usuario ya conoce (qué es riesgo operacional, qué es gobierno corporativo, qué es BCM, etc.)
+- NUNCA empieces con "El riesgo operacional es...", "El gobierno corporativo establece...", "Basel II define..." ni frases similares que expliquen lo que el experto ya sabe.
+- Responde como un colega especialista hablando con otro especialista: directo, técnico, orientado a la solución.
+- Formato: máximo 2-3 oraciones de contexto de la solución + lista de entregables o capacidades concretas. Sin relleno.
+- NUNCA uses markdown (sin **, sin #, sin _, sin backticks). Solo texto plano y guiones para listas.
+- El ÚNICO email de contacto es informes@primeconsulting-int.com — NUNCA uses otro email.
+- El teléfono es (1) 786-605-0670. El WhatsApp es https://wa.link/primeconsulting-int
+- Cuando el usuario quiera contactar o recibir propuesta, escribe EXACTAMENTE esto:
+"Si quieres conocer el detalle de alguna solución o recibir una propuesta, puedes:
+- Escribirnos a informes@primeconsulting-int.com
+- Llamar a (1) 786-605-0670
+- Contactarnos directo por WhatsApp: https://wa.link/primeconsulting-int"
+- No inventes proyectos, clientes ni métricas fuera del portafolio descrito
+- Si preguntan por precios, indica que se presupuestan según alcance y ofrece agendar consulta`;
+
+const chatHistory = [];
+
+function cleanText(text){
+  return text
+    // Corregir email incorrecto si el modelo lo usa
+    .replace(/informes\.primeconsultores@gmail\.com/gi, 'informes@primeconsulting-int.com')
+    .replace(/primeconsultores@gmail\.com/gi, 'informes@primeconsulting-int.com')
+    // Eliminar markdown
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    .replace(/^#{1,3}\s+/gm, '')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\n/g, '<br>');
+}
+function appendMsg(text, role){
+  const msgs = document.getElementById('chatMessages');
+  const div  = document.createElement('div');
+  div.className = `msg ${role}`;
+  div.innerHTML = cleanText(text);
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+async function callAPI(messages, retries=3, delay=2000){
+  for(let i=0; i<retries; i++){
+    const r = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
+      },
+      body: JSON.stringify({
+        model:      'claude-haiku-4-5-20251001',
+        max_tokens: 800,
+        system:     CHAT_SYSTEM,
+        messages:   messages
+      })
+    });
+    const data = await r.json();
+    // Overloaded o 529 → esperar y reintentar
+    if(data.error && (data.error.type==='overloaded_error' || r.status===529 || r.status===529)){
+      if(i < retries-1){
+        await new Promise(res=>setTimeout(res, delay*(i+1)));
+        continue;
+      }
+      throw new Error('overloaded');
+    }
+    if(data.error) throw new Error(data.error.message||'Error de la API');
+    return data;
+  }
+}
+
+let chatBusy = false;
+
+async function sendChat(){
+  if(chatBusy) return;
+  const input = document.getElementById('chatInput');
+  const msg   = input.value.trim();
+  if(!msg) return;
+  input.value = '';
+  chatBusy = true;
+
+  appendMsg(msg, 'user');
+  chatHistory.push({role:'user', content: msg});
+
+  const thinking = document.getElementById('chatThinking');
+  thinking.textContent = 'Procesando...';
+  thinking.style.display='block';
+  document.getElementById('chatMessages').scrollTop=9999;
+
+  try {
+    const data  = await callAPI(chatHistory);
+    const reply = (data.content||[])
+      .filter(b=>b.type==='text')
+      .map(b=>b.text)
+      .join('\n')
+      .trim();
+
+    if(!reply) throw new Error('Respuesta vacía');
+
+    chatHistory.push({role:'assistant', content: reply});
+    thinking.style.display='none';
+    appendMsg(reply, 'bot');
+
+  } catch(e){
+    console.error('Chat error:', e);
+    thinking.style.display='none';
+    if(e.message==='overloaded'){
+      appendMsg(
+        'El asistente está con alta demanda en este momento. Por favor intente de nuevo en unos segundos, o contáctenos directamente:\n' +
+        '- informes@primeconsulting-int.com\n' +
+        '- (1) 786-605-0670\n' +
+        '- <a href="https://wa.link/primeconsulting-int" target="_blank" style="color:var(--accent)">WhatsApp</a>',
+        'bot'
+      );
+    } else {
+      appendMsg(
+        'Hubo un problema al conectar. Intente nuevamente o escríbanos a informes@primeconsulting-int.com',
+        'bot'
+      );
+    }
+    // Remover el mensaje del usuario del historial para permitir reintento
+    chatHistory.pop();
+  } finally {
+    chatBusy = false;
+  }
+}
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.12});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
