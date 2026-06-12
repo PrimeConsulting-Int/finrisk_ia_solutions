@@ -943,7 +943,7 @@ label.es-content,label.en-content{display:block}
           <label id="lbl-msg">Mensaje</label>
           <textarea id="cf-msg" placeholder="Describa brevemente su necesidad o desafío..."></textarea>
         </div>
-        <button class="form-submit" id="form-submit-btn" onclick="openBooking()">Agendar Consulta en Calendario</button>
+        <a href="https://calendly.com/informes-primeconsultores/30min" target="_blank" class="form-submit" style="display:block;text-align:center;text-decoration:none">Agendar Consulta en Calendario</a>
         <div class="form-note" id="form-status"></div>
       </div>
     </div>
@@ -1313,11 +1313,7 @@ const OWNER_EMAIL = 'informes@primeconsulting-int.com';
 const OWNER_TZ    = 'America/New_York';
 
 function openBooking(){
-  document.getElementById('bookingModal').classList.add('open');
-  document.body.style.overflow='hidden';
-  // set min date = today
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('b-date').setAttribute('min', today);
+  window.open('https://calendly.com/informes-primeconsultores/30min', '_blank');
 }
 function closeBooking(){
   document.getElementById('bookingModal').classList.remove('open');
@@ -1562,11 +1558,12 @@ INSTRUCCIONES DE RESPUESTA:
 - NUNCA uses markdown (sin **, sin #, sin _, sin backticks). Solo texto plano y guiones para listas.
 - El ÚNICO email de contacto es informes@primeconsulting-int.com — NUNCA uses otro email.
 - El teléfono es (1) 786-605-0670. El WhatsApp es https://wa.link/primeconsulting-int
-- Cuando el usuario quiera contactar o recibir propuesta, escribe EXACTAMENTE esto:
+- Cuando el usuario quiera contactar, agendar o recibir propuesta, escribe EXACTAMENTE esto:
 "Si quieres conocer el detalle de alguna solución o recibir una propuesta, puedes:
+- Agendar una consulta directamente en: https://calendly.com/informes-primeconsultores/30min
 - Escribirnos a informes@primeconsulting-int.com
 - Llamar a (1) 786-605-0670
-- Contactarnos directo por WhatsApp: https://wa.link/primeconsulting-int"
+- Contactarnos por WhatsApp: https://wa.link/primeconsulting-int"
 - No inventes proyectos, clientes ni métricas fuera del portafolio descrito
 - Si preguntan por precios, indica que se presupuestan según alcance y ofrece agendar consulta`;
 
@@ -1682,3 +1679,4 @@ document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>
+
