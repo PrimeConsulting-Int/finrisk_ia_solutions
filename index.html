@@ -324,6 +324,15 @@ label.es-content,label.en-content{display:block}
 <body>
 
 <!-- TOPBAR -->
+<form name="consulta-ejecutiva" netlify netlify-honeypot="bot-field" hidden>
+  <input name="nombre"/>
+  <input name="email"/>
+  <input name="institucion"/>
+  <input name="area"/>
+  <input name="fecha"/>
+  <input name="hora"/>
+  <textarea name="mensaje"></textarea>
+</form>
 <div class="topbar">
   <div class="topbar-inner">
     <span id="topbar-loc">Miami, FL · América Latina · informes@primeconsulting-int.com</span>
@@ -1439,89 +1448,45 @@ async function confirmBooking(){
   const dur   = parseInt(document.getElementById('b-duration').value);
   const [hh,mm] = selectedTime.split(':').map(Number);
 
-  // Build ISO times in Miami (ET = UTC-4 or UTC-5; use local offset from browser or fixed -4 for Miami summer)
-  const startISO = `${date}T${String(hh).padStart(2,'0')}:${String(mm).padStart(2,'0')}:00`;
-  const endDate  = new Date(date+'T'+startISO.split('T')[1]);
+  const endDate = new Date(date+'T'+String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0')+':00');
   endDate.setMinutes(endDate.getMinutes()+dur);
-  const endISO   = `${date}T${String(endDate.getHours()).padStart(2,'0')}:${String(endDate.getMinutes()).padStart(2,'0')}:00`;
 
   showBPanel('bpanel-loading');
   document.getElementById('confirmBtn').disabled=true;
 
-  const eventTitle   = `Consulta FinRisk IA Solutions — ${name}${inst?' ('+inst+')':''}`;
-  const eventDesc    = `<b>Consulta Ejecutiva — FinRisk IA Solutions</b><br><br>` +
-    `<b>Cliente:</b> ${name}${title?' — '+title:''}<br>` +
-    `<b>Email:</b> ${email}<br>` +
-    `<b>Institución:</b> ${inst||'—'}<br>` +
-    `<b>Área de interés:</b> ${area}<br><br>` +
-    `<b>Descripción:</b><br>${msg||'Sin descripción adicional.'}<br><br>` +
-    `<i>Agendado desde FinRisk IA Solutions — Prime Consulting International LLC</i>`;
-
-  const calPrompt = `Crea un evento en Google Calendar con los siguientes datos exactos:
-- Título: "${eventTitle}"
-- Inicio: ${startISO} (zona horaria: ${OWNER_TZ})
-- Fin: ${endISO} (zona horaria: ${OWNER_TZ})
-- Descripción (HTML): ${eventDesc}
-- Asistentes: agrega al invitado con email "${email}"
-- Agrega un enlace de Google Meet
-- Zona horaria: ${OWNER_TZ}
-- Color: 9 (Blueberry)
-- Recordatorio por email 24 horas antes y popup 30 minutos antes
-
-Confirma cuando el evento haya sido creado exitosamente y devuelve el ID del evento y el enlace de Google Meet si está disponible.`;
+  const d = new Date(date+'T12:00:00');
+  const dateLabel = d.toLocaleDateString('es-ES',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
 
   try {
-    const r = await fetch('/.netlify/functions/anthropic-proxy',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1024,
-        mcp_servers:[{
-          type:'url',
-          url:'https://calendarmcp.googleapis.com/mcp/v1',
-          name:'google-calendar'
-        }],
-        messages:[{role:'user', content: calPrompt}]
-      })
-    });
-    const data = await r.json();
+    // Enviar via Netlify Forms
+    const formData = new FormData();
+    formData.append('form-name',  'consulta-ejecutiva');
+    formData.append('nombre',     name + (title ? ' — '+title : ''));
+    formData.append('email',      email);
+    formData.append('institucion',inst||'—');
+    formData.append('area',       area);
+    formData.append('fecha',      dateLabel);
+    formData.append('hora',       selectedTime+' ET (Miami) · '+dur+' min');
+    formData.append('mensaje',    msg||'Sin descripción adicional.');
 
-    // Extract text response from content blocks
-    const textBlocks = (data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('\n');
-    const toolResults= (data.content||[]).filter(b=>b.type==='mcp_tool_result');
+    const r = await fetch('/', {method:'POST', body: formData});
 
-    // Try to detect success — look for event ID or meet link in response
-    const hasSuccess = textBlocks.toLowerCase().includes('creado') ||
-                       textBlocks.toLowerCase().includes('created') ||
-                       textBlocks.toLowerCase().includes('event') ||
-                       toolResults.length > 0;
+    document.getElementById('successEventDetails').innerHTML = `
+      <div style="font-weight:500;margin-bottom:.6rem;color:var(--navy)">Solicitud recibida</div>
+      <div style="color:var(--muted);margin-bottom:.25rem">Nombre: ${name}${title?' — '+title:''}</div>
+      <div style="color:var(--muted);margin-bottom:.25rem">Fecha preferida: ${dateLabel}</div>
+      <div style="color:var(--muted);margin-bottom:.25rem">Hora preferida: ${selectedTime} ET · ${dur} min</div>
+      <div style="color:var(--muted);margin-bottom:.25rem">Área: ${area}</div>
+      <div style="margin-top:.75rem;padding:.6rem;background:#f0fdf4;border-radius:4px;font-size:12px;color:#166534">
+        Confirmaremos la reunión en su correo ${email} en menos de 24 horas hábiles.
+      </div>
+    `;
+    showBPanel('bpanel-success');
 
-    if(hasSuccess || data.stop_reason==='end_turn'){
-      // Extract meet link if present
-      const meetMatch = textBlocks.match(/https:\/\/meet\.google\.com\/[a-z0-9\-]+/i);
-      const meetLink  = meetMatch ? meetMatch[0] : null;
-
-      const d = new Date(date+'T'+startISO.split('T')[1]);
-      const dateLabel = d.toLocaleDateString('es-ES',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-
-      document.getElementById('successEventDetails').innerHTML = `
-        <div style="font-weight:500;margin-bottom:.5rem;color:var(--navy)">📅 ${eventTitle}</div>
-        <div style="color:var(--muted);margin-bottom:.25rem">🗓 ${dateLabel}</div>
-        <div style="color:var(--muted);margin-bottom:.25rem">⏰ ${selectedTime} ET → ${String(endDate.getHours()).padStart(2,'0')}:${String(endDate.getMinutes()).padStart(2,'0')} ET · ${dur} min</div>
-        <div style="color:var(--muted);margin-bottom:.5rem">📧 Invitación enviada a ${email}</div>
-        ${meetLink?`<div style="margin-top:.5rem"><a href="${meetLink}" target="_blank">🎥 Unirse a Google Meet</a></div>`:'<div style="color:var(--muted);font-size:12px;margin-top:.5rem">Enlace Meet incluido en la invitación de calendario.</div>'}
-      `;
-      showBPanel('bpanel-success');
-    } else {
-      throw new Error(textBlocks || 'Respuesta inesperada de la API');
-    }
   } catch(err){
     console.error('Booking error:', err);
-    const isLang = document.body.classList.contains('lang-en');
-    document.getElementById('errorMsg').textContent = isLang
-      ? `Could not create the event: ${err.message}. Please contact us directly at informes@primeconsulting-int.com`
-      : `No se pudo crear el evento: ${err.message}. Contáctenos en informes@primeconsulting-int.com o por WhatsApp: https://wa.link/primeconsulting-int`;
+    document.getElementById('errorMsg').textContent =
+      'No se pudo enviar la solicitud. Contáctenos directamente en informes@primeconsulting-int.com o por WhatsApp: https://wa.link/primeconsulting-int';
     showBPanel('bpanel-error');
   }
   document.getElementById('confirmBtn').disabled=false;
