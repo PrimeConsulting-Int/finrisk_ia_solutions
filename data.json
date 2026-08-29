@@ -1,0 +1,46 @@
+{
+  "asOf": "2026-09-30",
+  "segments": [
+    { "name": "Consumo", "amount": 292.1, "pct": 34.4, "mora": 4.6 },
+    { "name": "Hipotecario", "amount": 201.0, "pct": 23.7, "mora": 1.9 },
+    { "name": "PYME", "amount": 168.4, "pct": 19.8, "mora": 7.0 },
+    { "name": "Corporativo", "amount": 138.6, "pct": 16.3, "mora": 2.2 },
+    { "name": "Tarjetas de Crédito", "amount": 49.3, "pct": 5.8, "mora": 9.4 }
+  ],
+  "products": [
+    { "name": "Préstamos Personales", "amount": 216.8, "pct": 25.5, "mora": 4.9 },
+    { "name": "Líneas de Crédito PYME", "amount": 168.4, "pct": 19.8, "mora": 7.0 },
+    { "name": "Hipotecas Residenciales", "amount": 201.0, "pct": 23.7, "mora": 1.9 },
+    { "name": "Tarjetas de Crédito", "amount": 49.3, "pct": 5.8, "mora": 9.4 },
+    { "name": "Leasing y Corporativo", "amount": 138.6, "pct": 16.3, "mora": 2.2 },
+    { "name": "Sobregiros", "amount": 75.4, "pct": 8.9, "mora": 5.7 }
+  ],
+  "aging": [
+    { "label": "Corriente (0 días)", "amount": 726.3, "color": "#1A7ED4", "trend": -0.3 },
+    { "label": "1–30 días", "amount": 48.9, "color": "#D4AF72", "trend": 0.3 },
+    { "label": "31–60 días", "amount": 24.1, "color": "#C98A4B", "trend": 0.2 },
+    { "label": "61–90 días", "amount": 16.5, "color": "#D4632B", "trend": 0.2 },
+    { "label": "90+ días", "amount": 35.6, "color": "#C0392B", "trend": 0.3 }
+  ],
+  "riskDist": [
+    { "label": "A", "pct": 41, "color": "#1A7ED4" },
+    { "label": "B", "pct": 31, "color": "#2E5580" },
+    { "label": "C", "pct": 19, "color": "#D4AF72" },
+    { "label": "D+", "pct": 9, "color": "#C0392B" }
+  ],
+  "alerts": [
+    { "severity": "alta", "title": "Mora en PYME supera 7%", "desc": "El índice de mora 30d en PYME llegó a 7.0%, tercer mes consecutivo de alza.", "segment": "PYME", "time": "Hace 1h" },
+    { "severity": "alta", "title": "EL de Tarjetas de Crédito en 9.4%", "desc": "La pérdida esperada del segmento supera el límite de apetito de riesgo (4.5%) por más del doble.", "segment": "Tarjetas de Crédito", "time": "Hace 3h" },
+    { "severity": "media", "title": "Cartera 90+ días crece a $35.6M", "desc": "La mora mayor a 90 días subió +0.3pp respecto al cierre anterior.", "segment": "General", "time": "Hace 8h" },
+    { "severity": "media", "title": "Concentración en Corporativo", "desc": "Los 10 principales deudores representan 36% de la cartera Corporativa.", "segment": "Corporativo", "time": "Hace 1d" },
+    { "severity": "baja", "title": "Cobertura de provisiones estable", "desc": "La cobertura se mantiene en 138%, dentro de meta interna.", "segment": "General", "time": "Hace 2d" }
+  ],
+  "scenarios": {
+    "base": { "pd": 3.4, "lgd": 43, "el": 20.6, "seg": [7.1, 2.0, 6.4, 2.6, 2.5] },
+    "adverso": { "pd": 5.9, "lgd": 49, "el": 33.8, "seg": [11.4, 3.3, 10.7, 4.0, 4.4] },
+    "severo": { "pd": 9.6, "lgd": 56, "el": 56.3, "seg": [18.9, 5.3, 18.2, 6.8, 7.1] }
+  },
+  "coverage": "138%",
+  "moraTrend": "+0.3pp",
+  "elDelta": "+3.1%"
+}
