@@ -286,15 +286,15 @@ footer{background:var(--navy);color:rgba(255,255,255,.45);padding:3rem 0 1.5rem}
       <span class="nav-logo-badge">⬡ FinRisk IA Solutions</span>
     </div>
     <ul class="nav-links">
-      <li><a href="#servicios" onclick="scrollTo('servicios')">Servicios</a></li>
-      <li><a href="#valor" onclick="scrollTo('valor')">Propuesta de Valor</a></li>
-      <li><a href="#casos" onclick="scrollTo('casos')">Casos de Uso</a></li>
-      <li><a href="#metodologia" onclick="scrollTo('metodologia')">Metodología</a></li>
-      <li><a href="#perfil" onclick="scrollTo('perfil')">Perfil</a></li>
+      <li><a href="#servicios" onclick="goToSection('servicios')">Servicios</a></li>
+      <li><a href="#valor" onclick="goToSection('valor')">Propuesta de Valor</a></li>
+      <li><a href="#casos" onclick="goToSection('casos')">Casos de Uso</a></li>
+      <li><a href="#metodologia" onclick="goToSection('metodologia')">Metodología</a></li>
+      <li><a href="#perfil" onclick="goToSection('perfil')">Perfil</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:.5rem">
       <button class="lang-btn" onclick="toggleLang()">EN / ES</button>
-      <button class="nav-cta" onclick="scrollTo('contacto')">
+      <button class="nav-cta" onclick="goToSection('contacto')">
         <span class="es-content">Solicitar Consulta</span>
         <span class="en-content">Request a Consultation</span>
       </button>
@@ -321,11 +321,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.45);padding:3rem 0 1.5rem}
         <span class="en-content">— Artificial intelligence applied to the risk that matters.</span>
       </div>
       <div class="hero-actions">
-        <button class="btn-primary" onclick="scrollTo('contacto')">
+        <button class="btn-primary" onclick="goToSection('contacto')">
           <span class="es-content">Agendar Consulta Ejecutiva</span>
           <span class="en-content">Schedule Executive Consultation</span>
         </button>
-        <button class="btn-outline" onclick="scrollTo('servicios')">
+        <button class="btn-outline" onclick="goToSection('servicios')">
           <span class="es-content">Ver Servicios</span>
           <span class="en-content">View Services</span>
         </button>
@@ -766,25 +766,29 @@ footer{background:var(--navy);color:rgba(255,255,255,.45);padding:3rem 0 1.5rem}
           </div>
         </div>
       </div>
-      <div class="contact-form">
+      <form class="contact-form" id="consulta-form" name="consulta-finrisk" method="POST" data-netlify="true" netlify-honeypot="cf-empresa" onsubmit="return submitForm(event)">
+        <input type="hidden" name="form-name" value="consulta-finrisk"/>
+        <p style="display:none">
+          <label>No llenar: <input name="cf-empresa"/></label>
+        </p>
         <div class="form-group">
           <label class="es-content">Nombre y Cargo</label>
           <label class="en-content">Name and Title</label>
-          <input type="text" id="cf-name" placeholder="Ej. Juan Pérez — CRO"/>
+          <input type="text" id="cf-name" name="nombre" placeholder="Ej. Juan Pérez — CRO"/>
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" id="cf-email" placeholder="correo@banco.com"/>
+          <input type="email" id="cf-email" name="email" placeholder="correo@banco.com"/>
         </div>
         <div class="form-group">
           <label class="es-content">Institución</label>
           <label class="en-content">Institution</label>
-          <input type="text" id="cf-inst" placeholder="Banco / AFP / Aseguradora"/>
+          <input type="text" id="cf-inst" name="institucion" placeholder="Banco / AFP / Aseguradora"/>
         </div>
         <div class="form-group">
           <label class="es-content">Área de Interés</label>
           <label class="en-content">Area of Interest</label>
-          <select id="cf-area">
+          <select id="cf-area" name="area_interes">
             <option value="">
               -- Seleccionar / Select --
             </option>
@@ -799,14 +803,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.45);padding:3rem 0 1.5rem}
         <div class="form-group">
           <label class="es-content">Mensaje</label>
           <label class="en-content">Message</label>
-          <textarea id="cf-msg" placeholder="Describa brevemente su necesidad o desafío..."></textarea>
+          <textarea id="cf-msg" name="mensaje" placeholder="Describa brevemente su necesidad o desafío..."></textarea>
         </div>
-        <button class="form-submit" onclick="submitForm()">
+        <button class="form-submit" type="submit">
           <span class="es-content">Enviar Solicitud</span>
           <span class="en-content">Send Request</span>
         </button>
         <div class="form-note" id="form-status"></div>
-      </div>
+      </form>
     </div>
   </div>
 </section>
@@ -913,22 +917,39 @@ function toggleLang(){
   buildDiffTable();
 }
 
-function scrollTo(id){
+function goToSection(id){
   document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
-function submitForm(){
+function submitForm(event){
+  event.preventDefault();
+  const form=document.getElementById('consulta-form');
+  const status=document.getElementById('form-status');
   const name=document.getElementById('cf-name').value;
   const email=document.getElementById('cf-email').value;
-  const inst=document.getElementById('cf-inst').value;
-  const area=document.getElementById('cf-area').value;
-  const msg=document.getElementById('cf-msg').value;
   if(!name||!email){
-    document.getElementById('form-status').textContent='Por favor complete nombre y email.';
-    return;
+    status.textContent='Por favor complete nombre y email.';
+    status.style.color='';
+    return false;
   }
-  document.getElementById('form-status').textContent='✓ Solicitud enviada. Le contactaremos en menos de 24 horas hábiles.';
-  document.getElementById('form-status').style.color='#166534';
+  const btn=form.querySelector('.form-submit');
+  btn.disabled=true;
+  status.textContent='Enviando...';
+  status.style.color='';
+  fetch('/',{
+    method:'POST',
+    headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body:new URLSearchParams(new FormData(form)).toString()
+  }).then(res=>{
+    if(!res.ok)throw new Error('status '+res.status);
+    status.textContent='✓ Solicitud enviada. Le contactaremos en menos de 24 horas hábiles.';
+    status.style.color='#166534';
+    form.reset();
+  }).catch(()=>{
+    status.textContent='No se pudo enviar. Por favor escríbanos directamente a informes.primeconsultores@gmail.com';
+    status.style.color='#b91c1c';
+  }).finally(()=>{btn.disabled=false;});
+  return false;
 }
 
 let chatOpen=false;
