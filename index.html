@@ -972,9 +972,10 @@ Tagline: "Inteligencia artificial aplicada al riesgo que importa."
 
 Responde en el idioma del usuario. Sé conciso, profesional y orientado al cliente financiero (CRO, gerente de riesgo). No inventes proyectos ni clientes. Máximo 3 párrafos cortos.`;
 
-const CHAT_API_URL='https://finrisk-backend.onrender.com/api/chat';
+const CHAT_API_URL='/.netlify/functions/anthropic-proxy';
+const CHAT_MODEL='claude-haiku-4-5-20251001';
 const CHAT_UNAVAILABLE='En este momento el asistente no esta disponible. Por favor contactenos directamente: informes@primeconsulting-int.com';
-const chatHistory=[{role:'user',content:CHAT_CONTEXT},{role:'assistant',content:'Entendido. Estoy listo para asistir a los clientes de FinRisk IA Solutions.'}];
+const chatHistory=[];
 
 function escapeHtml(text){
   return text.replace(/[&<>"']/g,(char)=>({
@@ -1004,10 +1005,10 @@ async function sendChat(){
     const r=await fetch(CHAT_API_URL,{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({messages:chatHistory})
+      body:JSON.stringify({model:CHAT_MODEL,max_tokens:600,system:CHAT_CONTEXT,messages:chatHistory})
     });
     const d=await r.json();
-    const reply=r.ok?(d.reply||'Sin respuesta disponible.'):(d.reply||CHAT_UNAVAILABLE);
+    const reply=(r.ok&&d.content&&d.content[0]&&d.content[0].text)?d.content[0].text:CHAT_UNAVAILABLE;
     chatHistory.push({role:'assistant',content:reply});
     document.getElementById('chatThinking').style.display='none';
     appendChatMessage('bot',reply);
